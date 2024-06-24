@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Spatie\Role;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +16,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        if(env("APP_ENV") == "local"){
+            $password = "password";
+        }else{
+            $password = Str::password();
+         }
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $admin = User::create([
+            "name_first" => "Administrator",
+            "name_last" => "Admin",
+            "email" => "admin@example.org",
+            "password" => Hash::make($password),
+            "employee_number" => "1"
         ]);
+
+        echo "Admin created: " . $admin->email . " with Password  " . $password . "\n";
+
+        $superadmin = Role::create(["name" => "super-admin"]);
+        $admin->assignRole($superadmin);
     }
+
 }
