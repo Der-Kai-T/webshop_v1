@@ -1,0 +1,231 @@
+{
+  "Oberbekleidung": {
+    "description": "Kleidung, die den Oberkörper bedeckt und meist im Freien getragen wird.",
+    "children": {
+      "Jacken": {
+        "description": "Kurz geschnittene Oberbekleidung für verschiedene Witterungsbedingungen.",
+          "children": {
+              "Winterjacken": "Dicke Jacken, die speziell für kalte Wintertage entwickelt wurden.",
+              "Regenjacken": "Wasserdichte Jacken, die vor Regen schützen.",
+              "Lederjacken": "Jacken aus Leder, oft stilvoll und langlebig.",
+              "Daunenjacken": "Mit Daunen gefüllte Jacken für zusätzliche Wärme.",
+              "Bomberjacken": "Kurz geschnittene Jacken mit elastischem Bund und Bündchen.",
+              "Blazer": "Formelle Jacken, oft in Kombination mit Anzughosen getragen."
+          }
+      },
+      "Mäntel": {
+        "description": "Lange Oberbekleidung für zusätzlichen Schutz und Wärme.",
+          "children": {
+              "Trenchcoats": "Wasserabweisende Mäntel mit Gürtel, oft knielang.",
+              "Wollmäntel": "Mäntel aus Wolle für kühle Tage.",
+              "Parkas": "Lange, warme Mäntel, oft mit Kapuze und Fellbesatz.",
+              "Dufflecoats": "Lange Mäntel mit Knebelverschlüssen."
+          }
+      },
+      "Westen": {
+        "description": "Ärmellose Oberbekleidung für zusätzliche Wärme oder Stil.",
+          "children": {
+              "Daunenwesten": "Mit Daunen gefüllte Westen für Wärme ohne Ärmel.",
+              "Jeanswesten": "Weste aus Jeansstoff, lässig und modisch.",
+              "Strickwesten": "Gestrickte Westen für zusätzlichen Komfort und Wärme."
+          }
+      },
+      "Pullover & Sweater": {
+        "description": "Bequeme Oberbekleidung, oft aus Strick oder Baumwolle.",
+          "children": {
+              "Strickpullover": "Pullover aus gestricktem Material für Wärme und Komfort.",
+              "Hoodies": "Sweatshirts mit Kapuze, oft mit Taschen vorne.",
+              "Sweatshirts": "Bequeme Oberteile aus Sweatshirtstoff, ohne Kapuze.",
+              "Cardigans": "Strickjacken mit Knopfleiste vorne."
+          }
+      },
+      "Hemden & Blusen": {
+        "description": "Formelle oder legere Oberbekleidung für den Alltag oder spezielle Anlässe.",
+          "children": {
+              "Casual-Hemden": "Bequeme, legere Hemden für den Alltag.",
+              "Business-Hemden": "Formelle Hemden für das Büro oder Geschäftstermine.",
+              "Kurzarmhemden": "Hemden mit kurzen Ärmeln für wärmeres Wetter.",
+              "Langarmhemden": "Hemden mit langen Ärmeln für kühleres Wetter.",
+              "Blusen": "Leichte, oft elegante Oberteile für Frauen.",
+              "Tuniken": "Lange, lockere Oberteile, die oft über Leggings oder Hosen getragen werden."
+          }
+      }
+    }
+  },
+  "Unterbekleidung": {
+    "description": "Kleidung, die den Unterkörper bedeckt.",
+      "children": {
+          "Hosen": {
+              "description": "Bekleidung für die Beine, in verschiedenen Stilen und Materialien.",
+              "children": {
+                  "Jeans": "Robuste Hosen aus Denimstoff.",
+                  "Chinos": "Leichte, bequeme Hosen aus Baumwolle.",
+                  "Anzughosen": "Formelle Hosen, oft mit Anzugjacke getragen.",
+                  "Jogginghosen": "Bequeme Hosen für Sport und Freizeit.",
+                  "Leggings": "Enge, elastische Hosen, oft für Sport oder Freizeit.",
+                  "Shorts": "Kurze Hosen für warmes Wetter oder Sport."
+              }
+          },
+          "Röcke": {
+              "description": "Bekleidung für Frauen, die die Beine teilweise bedeckt.",
+              "children": {
+                  "Mini-Röcke": "Kurze Röcke, die über dem Knie enden.",
+                  "Midi-Röcke": "Röcke, die bis zur Mitte der Wade reichen.",
+                  "Maxi-Röcke": "Lange Röcke, die bis zum Knöchel reichen.",
+                  "Bleistiftröcke": "Eng anliegende Röcke, die bis zum Knie reichen."
+              }
+          },
+          "Kleider": {
+              "description": "Einteilige Bekleidung für Frauen, die den Körper von den Schultern bis zu den Beinen bedeckt.",
+              "children": {
+                  "Abendkleider": "Formelle Kleider für Abendveranstaltungen.",
+                  "Cocktailkleider": "Elegante, kürzere Kleider für formelle Anlässe.",
+                  "Sommerkleider": "Leichte, oft bunte Kleider für warmes Wetter.",
+                  "Freizeitkleider": "Bequeme Kleider für den Alltag.",
+                  "Etuikleider": "Figurbetonte, ärmellose Kleider für formelle Anlässe."
+              }
+          }
+      }
+  },
+  "Sportbekleidung": {
+    "description": "Bekleidung, die speziell für sportliche Aktivitäten entworfen wurde.",
+      "children": {
+          "Sportjacken": {
+              "description": "Leichte Jacken für sportliche Aktivitäten."
+          },
+          "Sporthosen": {
+              "description": "Hosen, die für verschiedene sportliche Aktivitäten geeignet sind.",
+              "children": {
+                  "Laufhosen": "Enge Hosen für Läufer.",
+                  "Trainingshosen": "Bequeme Hosen für das Fitnessstudio oder andere Sportarten.",
+                  "Yogahosen": "Elastische Hosen, die Bewegungsfreiheit für Yoga bieten."
+              }
+          },
+          "Sporttops": {
+              "description": "Oberteile, die für sportliche Aktivitäten geeignet sind.",
+              "children": {
+                  "Sport-BHs": "Unterstützende BHs für sportliche Aktivitäten.",
+                  "Tanktops": "Ärmellose Oberteile für Sport und Freizeit.",
+                  "Funktionsshirts": "Oberteile aus speziellem Material, das Schweiß ableitet."
+              }
+          },
+          "Sportshorts": {
+              "description": "Kurze Hosen für sportliche Aktivitäten."
+          },
+          "Bademode": {
+              "description": "Kleidung für das Schwimmen und Baden.",
+              "children": {
+                  "Badeanzüge": "Einteilige Schwimmbekleidung.",
+                  "Bikinis": "Zweiteilige Schwimmbekleidung.",
+                  "Schwimmshorts": "Kurze Hosen zum Schwimmen."
+              }
+          }
+      }
+  },
+  "Unterwäsche": {
+    "description": "Kleidung, die direkt auf der Haut getragen wird.",
+      "children": {
+          "Slips & Boxershorts": {
+              "description": "Unterwäsche für Männer und Frauen.",
+              "children": {
+                  "Slips": "Unterwäsche, die eng anliegt und die Hüften bedeckt.",
+                  "Boxershorts": "Weite Unterhosen für Männer.",
+                  "Panties": "Eng anliegende Unterhosen für Frauen."
+              }
+          },
+          "BHs": {
+              "description": "Unterwäsche für Frauen zur Unterstützung der Brust.",
+              "children": {
+                  "Bügel-BHs": "BHs mit Drahtbügeln für zusätzlichen Halt.",
+                  "Sport-BHs": "BHs für sportliche Aktivitäten.",
+                  "Push-Up-BHs": "BHs, die die Brust anheben und formen."
+              }
+          },
+          "Nachtwäsche": {
+              "description": "Kleidung, die zum Schlafen getragen wird.",
+              "children": {
+                  "Schlafanzüge": "Zweiteilige Nachtwäsche.",
+                  "Nachthemden": "Einteilige Nachtwäsche für Frauen.",
+                  "Pyjamas": "Zweiteilige Nachtwäsche, oft aus Baumwolle."
+              }
+          },
+          "Socken & Strümpfe": {
+              "description": "Bekleidung für die Füße und Beine.",
+              "children": {
+                  "Sportsocken": "Socken, die für sportliche Aktivitäten geeignet sind.",
+                  "Kniestrümpfe": "Lange Socken, die bis zum Knie reichen.",
+                  "Strumpfhosen": "Eng anliegende Beinbekleidung für Frauen."
+              }
+          }
+      }
+  },
+  "Accessoires": {
+    "description": "Zusätzliche Bekleidungsstücke, die ein Outfit ergänzen.",
+      "children": {
+          "Hüte & Mützen": {
+              "description": "Kopfbedeckungen für verschiedene Wetterbedingungen und Stile.",
+              "children": {
+                  "Baseballcaps": "Sportliche Mützen mit Schirm.",
+                  "Beanies": "Eng anliegende Strickmützen.",
+                  "Sonnenhüte": "Hüte mit breiter Krempe zum Schutz vor der Sonne."
+              }
+          },
+          "Schals & Tücher": {
+              "description": "Bekleidung, die um den Hals getragen wird.",
+              "children": {
+                  "Schals": "Lange Stoffstücke, die um den Hals gewickelt werden.",
+                  "Halstücher": "Kleinere Tücher, die um den Hals gebunden werden.",
+                  "Ponchos": "Ärmellose Umhänge, die über den Kopf gezogen werden."
+              }
+          },
+          "Handschuhe": {
+              "description": "Bekleidung für die Hände.",
+              "children": {
+                  "Lederhandschuhe": "Handschuhe aus Leder für Stil und Wärme.",
+                  "Strickhandschuhe": "Handschuhe aus Strickmaterial für Wärme.",
+                  "Fingerlose Handschuhe": "Handschuhe ohne Finger, die Bewegungsfreiheit bieten."
+              }
+          },
+          "Gürtel": {
+              "description": "Accessoires, die um die Taille getragen werden.",
+              "children": {
+                  "Leder-Gürtel": "Gürtel aus Leder für Stil und Halt.",
+                  "Stoff-Gürtel": "Leichte Gürtel aus Stoff.",
+                  "Kettengürtel": "Dekorative Gürtel aus Kettengliedern."
+              }
+          }
+      }
+  },
+  "Schuhe": {
+      "description": "Bekleidung für die Füße.",
+      "children": {
+          "Sneaker": {
+              "description": "Bequeme, sportliche Schuhe für den Alltag und Sport."
+          },
+          "Stiefel": {
+              "description": "Hoch geschnittene Schuhe für verschiedene Wetterbedingungen.",
+              "children": {
+                  "Winterstiefel": "Warme, gefütterte Stiefel für den Winter.",
+                  "Gummistiefel": "Wasserdichte Stiefel für Regen und Matsch.",
+                  "Ankle Boots": "Knöchelhohe Stiefel für Stil und Komfort."
+              }
+          },
+          "Sandalen": {
+              "description": "Offene Schuhe für warmes Wetter.",
+              "children": {
+                  "Zehentrenner": "Sandalen mit einem Riemen zwischen den Zehen.",
+                  "Riemchensandalen": "Sandalen mit mehreren Riemen über dem Fuß.",
+                  "Trekking-Sandalen": "Robuste Sandalen für Wanderungen und Outdoor-Aktivitäten."
+              }
+          },
+          "Businessschuhe": {
+              "description": "Formelle Schuhe für das Büro oder besondere Anlässe.",
+              "children": {
+                  "Oxfordschuhe": "Klassische, geschnürte Lederschuhe.",
+                  "Derbys": "Lederschuhe mit offener Schnürung.",
+                  "Loafers": "Schlupfschuhe ohne Schnürsenkel."
+              }
+          }
+      }
+  }
+}

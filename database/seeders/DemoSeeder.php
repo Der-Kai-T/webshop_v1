@@ -24,7 +24,7 @@ class DemoSeeder extends Seeder
             default: false
         );
 
-        if($clear_database){
+        if ($clear_database) {
             Schema::disableForeignKeyConstraints();
             Item::truncate();
             Variant::truncate();
@@ -35,76 +35,48 @@ class DemoSeeder extends Seeder
         }
 
 
-        $categories_json =
-            '{
-  "Oberbekleidung": {
-    "Jacken": ["Winterjacken", "Regenjacken", "Lederjacken", "Daunenjacken", "Bomberjacken", "Blazer"],
-    "Mäntel": ["Trenchcoats", "Wollmäntel", "Parkas", "Dufflecoats"],
-    "Westen": ["Daunenwesten", "Jeanswesten", "Strickwesten"],
-    "Pullover & Sweater": ["Strickpullover", "Hoodies", "Sweatshirts", "Cardigans"],
-    "Hemden & Blusen": ["Casual-Hemden", "Business-Hemden", "Kurzarmhemden", "Langarmhemden", "Blusen", "Tuniken"]
-  },
-  "Unterbekleidung": {
-    "Hosen": ["Jeans", "Chinos", "Anzughosen", "Jogginghosen", "Leggings", "Shorts"],
-    "Röcke": ["Mini-Röcke", "Midi-Röcke", "Maxi-Röcke", "Bleistiftröcke"],
-    "Kleider": ["Abendkleider", "Cocktailkleider", "Sommerkleider", "Freizeitkleider", "Etuikleider"]
-  },
-  "Sportbekleidung": {
-    "Sportjacken": [],
-    "Sporthosen": ["Laufhosen", "Trainingshosen", "Yogahosen"],
-    "Sporttops": ["Sport-BHs", "Tanktops", "Funktionsshirts"],
-    "Sportshorts": [],
-    "Bademode": ["Badeanzüge", "Bikinis", "Schwimmshorts"]
-  },
-  "Unterwäsche": {
-    "Slips & Boxershorts": ["Slips", "Boxershorts", "Panties"],
-    "BHs": ["Bügel-BHs", "Sport-BHs", "Push-Up-BHs"],
-    "Nachtwäsche": ["Schlafanzüge", "Nachthemden", "Pyjamas"],
-    "Socken & Strümpfe": ["Sportsocken", "Kniestrümpfe", "Strumpfhosen"]
-  },
-  "Accessoires": {
-    "Hüte & Mützen": ["Baseballcaps", "Beanies", "Sonnenhüte"],
-    "Schals & Tücher": ["Schals", "Halstücher", "Ponchos"],
-    "Handschuhe": ["Lederhandschuhe", "Strickhandschuhe", "Fingerlose Handschuhe"],
-    "Gürtel": ["Leder-Gürtel", "Stoff-Gürtel", "Kettengürtel"]
-  },
-  "Schuhe": {
-    "Sneaker": [],
-    "Stiefel": ["Winterstiefel", "Gummistiefel", "Ankle Boots"],
-    "Sandalen": ["Zehentrenner", "Riemchensandalen", "Trekking-Sandalen"],
-    "Businessschuhe": ["Oxfordschuhe", "Derbys", "Loafers"]
-  }
-}
-';
+        $categories_json = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'demo_data.json');
 
-        $categories_array = json_decode($categories_json, true);
 
-        foreach($categories_array as $category_name => $children){
+        $categories_array = json_decode($categories_json);
+        //dump($categories_array);
+
+        foreach ($categories_array as $category_name => $category_data) {
             $main_category = Category::create([
                 'name' => $category_name,
-                'description' => Lorem::text()
+                'description' => $category_data->description
             ]);
 
-            foreach($children as $name => $items){
+            $children = $category_data->children;
+
+
+            foreach ($children as $name => $child_data) {
                 $category = Category::create([
                     'name' => $name,
                     'parent_id' => $main_category->id,
-                    'description' => Lorem::text()
+                    'description' => $child_data->description
                 ]);
-                foreach($items as $item){
-                    $item = Item::factory()->create([
-                        'name' => $item,
-                    ]);
 
-                    ItemCategory::create([
-                        'category_id' => $category->id,
-                        'item_id' => $item->id,
-                    ]);
+                if (property_exists($child_data, 'children')) {
+
+
+                    $items = $child_data->children;
+
+                    foreach ($items as $item_name => $description) {
+                        $item = Item::factory()->create([
+                            'name' => $item_name,
+                            'description' => $description
+                        ]);
+
+                        ItemCategory::create([
+                            'category_id' => $category->id,
+                            'item_id' => $item->id,
+                        ]);
+                    }
                 }
             }
 
         }
-
 
 
     }
