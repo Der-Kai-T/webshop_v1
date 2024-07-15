@@ -9,7 +9,10 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return Category::all();
+        $categories = Category::wherenull('parent_id')->get();
+       return view("shop.category.overview", [
+           "categories" => $categories,
+       ]);
     }
 
     public function store(Request $request)
@@ -24,7 +27,12 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return $category;
+
+
+        return view("shop.category.index", [
+            "category" => $category,
+            "items" => $category->allItems(),
+        ]);
     }
 
     public function update(Request $request, Category $category)

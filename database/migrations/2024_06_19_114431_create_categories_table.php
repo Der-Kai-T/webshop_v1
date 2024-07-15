@@ -8,8 +8,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id")->primary()->unique();
             $table->string('name');
+            $table->text("description");
             $table->uuid('parent_id')->nullable();
             $table->timestamps();
         });
@@ -19,4 +20,6 @@ return new class extends Migration {
     {
         Schema::dropIfExists('categories');
     }
+
+
 };

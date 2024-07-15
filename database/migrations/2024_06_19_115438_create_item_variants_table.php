@@ -8,13 +8,21 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('item_variants', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id")->primary()->unique();
             $table->uuid('item_id');
             $table->uuid('variant_id');
             $table->decimal('price_set')->nullable();
             $table->decimal('price_add')->nullable();
             $table->decimal('price_factor')->nullable();
             $table->timestamps();
+
+            $table->foreign('item_id')
+                ->references('id')
+                ->on('items');
+
+            $table->foreign('variant_id')
+                ->references('id')
+                ->on('variants');
         });
     }
 

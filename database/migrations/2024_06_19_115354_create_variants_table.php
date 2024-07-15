@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('variants', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id")->primary()->unique();
             $table->string('name');
             $table->string('color')->nullable();
             $table->string('key')->nullable();

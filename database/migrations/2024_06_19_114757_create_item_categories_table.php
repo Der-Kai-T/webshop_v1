@@ -8,10 +8,21 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('item_categories', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id")->primary()->unique();
             $table->uuid('item_id');
             $table->uuid('category_id');
+
             $table->timestamps();
+
+            $table->foreign("item_id")
+                ->references("id")
+                ->on("items")
+                ->onDelete("restrict");
+
+            $table->foreign("category_id")
+                ->references("id")
+                ->on("categories")
+                ->onDelete("restrict");
         });
     }
 

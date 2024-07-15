@@ -8,13 +8,18 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('item_sizes', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id")->primary()->unique();
             $table->uuid('item_id');
             $table->string('size');
             $table->decimal('price_set')->nullable();
             $table->decimal('price_add')->nullable();
             $table->decimal('price_factor')->nullable();
             $table->timestamps();
+
+            $table->foreign('item_id')
+                ->references('id')
+                ->on('items')
+                ->onDelete('restrict');
         });
     }
 

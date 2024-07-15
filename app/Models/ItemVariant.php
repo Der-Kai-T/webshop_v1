@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ItemVariant extends Model
 {
@@ -22,5 +23,10 @@ class ItemVariant extends Model
             'item_id' => 'string',
             'variant_id' => 'string',
         ];
+    }
+
+    public function item() : BelongsTo
+    {
+        return $this->belongsTo(Item::class);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Spatie\Role;
+use App\Models\Role;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use function Laravel\Prompts\confirm;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        if(env("APP_ENV") == "local"){
+        if(config("app.env") == "local"){
             $password = "password";
         }else{
             $password = Str::password();
@@ -34,6 +34,21 @@ class DatabaseSeeder extends Seeder
 
         $superadmin = Role::create(["name" => "super-admin"]);
         $admin->assignRole($superadmin);
+
+        $this->call([
+
+        ]);
+
+
+        $seed_dummy_data = confirm(
+            label: 'Do you want to seed some random data?',
+            default: false
+        );
+
+        if($seed_dummy_data) {
+            $this->call(DemoSeeder::class);
+        }
+
     }
 
 }
