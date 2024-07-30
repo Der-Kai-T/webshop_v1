@@ -46,13 +46,13 @@
     </noscript>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="">
 <x-shop.nav-bar />
 
 <!-- Main Section-->
-<section class="mt-0 ">
+<section class="mt-5 ">
 @yield("content")
 </section>
 

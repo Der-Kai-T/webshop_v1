@@ -57,7 +57,7 @@
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <p class="small fw-bolder text-uppercase tracking-wider text-muted mb-0 lh-1"></p>
                         <div class="d-flex justify-content-start align-items-center">
-                            <x-shop.review-stars-small
+                            <x-shop.review-stars.small
                                 stars="4.5"
                                 count="100"
                             />
@@ -66,12 +66,12 @@
                     <h1 class="mb-2 fs-2 fw-bold">{{ $item->name }}</h1>
                     <div class="d-flex justify-content-start align-items-center">
                         <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2">&euro; {{ $item->price }}</p>
-                        {{--                        <s class="lh-1 me-2"><span class="fw-bolder m-0">$94.99</span></s>--}}
-                        {{--                        <p class="lead fw-bolder m-0 fs-6 lh-1 text-success">Save $10.00</p>--}}
+                        {{--  <s class="lh-1 me-2"><span class="fw-bolder m-0">$94.99</span></s>--}}
+                        {{--  <p class="lead fw-bolder m-0 fs-6 lh-1 text-success">Save $10.00</p>--}}
                     </div>
                     <!-- /Product Name, Review, Brand, Price-->
 
-                    {{--                    <x-shop.item.product-views count="123"/>--}}
+                    {{--   <x-shop.item.product-views count="123"/>--}}
 
                     <!-- Product Options-->
                     <div class="border-top mt-4 mb-3">

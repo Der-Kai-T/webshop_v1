@@ -40,4 +40,9 @@ class Item extends Model
     {
         return $this->hasMany(ItemImage::class);
     }
+
+    public function main_image()
+    {
+        return $this->images->sortBy("sort")->first();
+    }
 }
