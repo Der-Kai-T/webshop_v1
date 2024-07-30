@@ -43,7 +43,7 @@
                 <span class="small fw-bolder ms-2 text-muted"> 4.7 (456)</span>
             </div>
             <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
-               href="product.html">{{ $item->name }}</a>
+               href="/item/{{$item->id}}">{{ $item->name }}</a>
             <p class="fw-bolder m-0 mt-2">{{ $item->price }}</p>
         </div>
     </div>

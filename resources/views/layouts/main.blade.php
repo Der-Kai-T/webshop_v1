@@ -49,7 +49,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="">
-<x-nav-bar />
+<x-shop.nav-bar />
 
 <!-- Main Section-->
 <section class="mt-0 ">
@@ -57,13 +57,18 @@
 </section>
 
 <x-footer />
-<x-offcanvas />
-<x-search-overlay />
+<x-shop.offcanvas />
+<x-shop.search-overlay />
 
 
 <script src="/assets/vendor/pixel-rocket-shop/js/vendor.bundle.js"></script>
 
 <!-- Theme JS -->
 <script src="/assets/vendor/pixel-rocket-shop/js/theme.bundle.js"></script>
+
+<script src="/assets/vendor/jquery/jquery-3.7.1.min.js"></script>
+@vite("resources/js/custom_frontend.js")
+
+
 </body>
 </html>

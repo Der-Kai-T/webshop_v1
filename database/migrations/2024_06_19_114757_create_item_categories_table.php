@@ -17,12 +17,12 @@ return new class extends Migration {
             $table->foreign("item_id")
                 ->references("id")
                 ->on("items")
-                ->onDelete("restrict");
+                ->onDelete("cascade");
 
             $table->foreign("category_id")
                 ->references("id")
                 ->on("categories")
-                ->onDelete("restrict");
+                ->onDelete("cascade");
         });
     }
 

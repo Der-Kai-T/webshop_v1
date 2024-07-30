@@ -20,9 +20,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource("/category", \App\Http\Controllers\CategoryController::class);
+    Route::resource("/item", \App\Http\Controllers\ItemController::class);
 
+    Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
+    Route::post("/admin/category/{category}/child_category", [\App\Http\Controllers\AdminCategoryController::class, 'addChildCategory'])->name('admin.category.addChildCategory');
     Route::resource("/admin/item", \App\Http\Controllers\AdminItemController::class);
+    Route::post("/admin/item/{item}/category_add", [\App\Http\Controllers\AdminItemController::class, 'addCategory'])->name('admin.item.addCategory');
+    Route::post("/admin/item/{item}/category_remove", [\App\Http\Controllers\AdminItemController::class, 'removeCategory'])->name('admin.item.removeCategory');
+    Route::post("/admin/item/{item}/size_add", [\App\Http\Controllers\AdminItemController::class, 'addSize'])->name('admin.item.addSize');
+    Route::post("/admin/item/{item}/upload", [\App\Http\Controllers\ItemImageController::class, 'upload'])->name('admin.item.upload');
+
 });
 
 require __DIR__.'/auth.php';

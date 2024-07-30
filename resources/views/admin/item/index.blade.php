@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
-
+                        <x-admin.card.button href="/admin/item/create" />
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@
                         <tbody>
                             @foreach($items as $item)
                                 <tr>
-                                   <td>{{ $item->name }}</td>
+                                   <td>{{ $item->name }} <x-admin.edit-link href="/admin/item/{{$item->id}}/edit" /></td>
                                     <td>
                                         <ul>
                                             @foreach($item->categories as $category)

@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('categories', function (Blueprint $table) {
             $table->uuid("id")->primary()->unique();
             $table->string('name');
-            $table->text("description");
+            $table->text("description")->nullable();
             $table->uuid('parent_id')->nullable();
             $table->timestamps();
         });

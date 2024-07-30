@@ -14,7 +14,6 @@ class Item extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'slug',
         'description',
         'price',
     ];
@@ -35,5 +34,10 @@ class Item extends Model
     public function variants() :HasMany
     {
         return $this->hasMany(ItemVariant::class);
+    }
+
+    public function images() :HasMany
+    {
+        return $this->hasMany(ItemImage::class);
     }
 }

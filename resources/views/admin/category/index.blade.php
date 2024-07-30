@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
-
+                        <x-admin.card.button href="/admin/category/create" />
                     </div>
                 </div>
 

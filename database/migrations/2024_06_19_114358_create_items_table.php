@@ -10,8 +10,7 @@ return new class extends Migration {
         Schema::create('items', function (Blueprint $table) {
             $table->uuid("id")->primary()->unique();
             $table->string('name');
-            $table->string('slug');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->decimal('price');
             $table->timestamps();
         });
