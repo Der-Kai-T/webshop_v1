@@ -7,7 +7,7 @@
     </div>
     <div class="offcanvas-body">
         <div class="d-flex flex-column justify-content-between w-100 h-100">
-            <x-shop.card-side/>
+            <x-shop.card.side/>
         </div>
     </div>
 </div>

@@ -73,6 +73,10 @@
 
                     {{--   <x-shop.item.product-views count="123"/>--}}
 
+                    <form action="/card/add" method="POST">
+                        @csrf
+                        <input type="hidden" name="item_id" value="{{$item->id}}">
+
                     <!-- Product Options-->
                     <div class="border-top mt-4 mb-3">
 {{--                        <x-shop.item.options.color/>--}}
@@ -81,7 +85,7 @@
                                 Größe (EU) : <span class="selected-option fw-bold" id="sizeLabel"></span>
                             </small>
                             <div class="form-group">
-                                <select name="selectSize" class="form-control" id="selectSize">
+                                <select required name="selectSize" class="form-control" id="selectSize">
                                     <option value="">Bitte Größe wählen</option>
                                     @foreach($item->sizes->sortBy("size") as $size)
                                         <option value="{{$size->id}}">{{ $size->size }}</option>
@@ -94,11 +98,11 @@
 
                     <!-- Add To Cart-->
                     <div class="d-flex justify-content-between mt-3">
-                        <button class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">Add To Cart</button>
-                        <button class="btn btn-orange btn-orange-chunky"><i class="ri-heart-line"></i></button>
+                        <button type="submit" class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">zum Warenkorb hinzufügen</button>
+                       <!-- <button class="btn btn-orange btn-orange-chunky"><i class="ri-heart-line"></i></button>-->
                     </div>
                     <!-- /Add To Cart-->
-
+                    </form>
                     {{--<x-shop.item.socials/>--}}
 
                     {{--<x-shop.item.special-offers/>--}}

@@ -89,8 +89,13 @@
                         class="btn btn-link px-2 text-decoration-none d-flex align-items-center disable-child-pointer"
                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                         <i class="ri-shopping-cart-2-line ri-lg align-middle position-relative z-index-10"></i>
+                        <?php
+                            $user_id = auth()->user()->id;
+                            $cart_count = \App\Models\Cart::where("user_id", $user_id)->count();
+                        //ToDo move to controller
+                            ?>
                         <span
-                            class="fs-xs fw-bolder f-w-5 f-h-5 bg-orange rounded-lg d-block lh-1 pt-1 position-absolute top-0 end-0 z-index-20 mt-2 text-white">2</span>
+                            class="fs-xs fw-bolder f-w-5 f-h-5 bg-orange rounded-lg d-block lh-1 pt-1 position-absolute top-0 end-0 z-index-20 mt-2 text-white">{{ $cart_count }}</span>
                     </button>
                 </li>
                 <!-- /Navbar Cart-->

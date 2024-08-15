@@ -31,11 +31,11 @@ class ItemImage extends Model
 
     public function src()
     {
-        return "storage" . $this->path . $this->file_name;
+        return "/storage" . $this->path . $this->file_name;
     }
     public function thumb()
     {
-        return "storage".$this->path . "thumb_" . $this->file_name;
+        return "/storage".$this->path . "thumb_" . $this->file_name;
     }
 
 

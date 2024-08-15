@@ -22,6 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::resource("/category", \App\Http\Controllers\CategoryController::class);
     Route::resource("/item", \App\Http\Controllers\ItemController::class);
 
+
+    Route::post("/card/add", [\App\Http\Controllers\CartController::class, 'add'])->name('card.add');
+    Route::get("/card", [\App\Http\Controllers\CartController::class, 'index'])->name('card.index');
+
     Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
     Route::post("/admin/category/{category}/child_category", [\App\Http\Controllers\AdminCategoryController::class, 'addChildCategory'])->name('admin.category.addChildCategory');
