@@ -65,7 +65,7 @@
                     </div>
                     <h1 class="mb-2 fs-2 fw-bold">{{ $item->name }}</h1>
                     <div class="d-flex justify-content-start align-items-center">
-                        <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2">&euro; {{ $item->price }}</p>
+                        <p class="lead fw-bolder m-0 fs-3 lh-1 text-danger me-2">{!!   config("app.shop.currency_symbol") !!} {{ $item->price }}</p>
                         {{--  <s class="lh-1 me-2"><span class="fw-bolder m-0">$94.99</span></s>--}}
                         {{--  <p class="lead fw-bolder m-0 fs-6 lh-1 text-success">Save $10.00</p>--}}
                     </div>
@@ -73,7 +73,7 @@
 
                     {{--   <x-shop.item.product-views count="123"/>--}}
 
-                    <form action="/card/add" method="POST">
+                    <form action="/cart/add" method="POST">
                         @csrf
                         <input type="hidden" name="item_id" value="{{$item->id}}">
 

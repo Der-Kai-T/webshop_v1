@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->uuid('variant_id')->nullable();
             $table->uuid('item_size_id')->nullable();
             $table->decimal('price');
-            $table->unsignedInteger('quantity');
+            $table->unsignedInteger('quantity')->default(1);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

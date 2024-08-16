@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -123,4 +123,20 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Webshop customization
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    'shop' => [
+        'currency' => env('APP_SHOP_CURRENCY', 'EUR'),
+        'currency_symbol' => env('APP_SHOP_CURRENCY_SYMBOL', '&euro;'),
+        'decimal_separator' => env('APP_SHOP_DECIMAL_SEPARATOR', ','),
+        'thousand_separator' => env('APP_SHOP_THOUSAND_SEPARATOR', '.'),
+
+    ]
 ];

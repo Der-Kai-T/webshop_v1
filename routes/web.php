@@ -4,17 +4,20 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
 
-;
+
+
 
 Route::get('/dashboard', function () {
     return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('index');
+    });
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -23,8 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::resource("/item", \App\Http\Controllers\ItemController::class);
 
 
-    Route::post("/card/add", [\App\Http\Controllers\CartController::class, 'add'])->name('card.add');
-    Route::get("/card", [\App\Http\Controllers\CartController::class, 'index'])->name('card.index');
+    Route::post("/cart/add", [\App\Http\Controllers\CartController::class, 'add'])->name('card.add');
+    Route::post("/cart/remove/{cart}", [\App\Http\Controllers\CartController::class, 'remove'])->name('card.remove');
+    Route::get("/cart", [\App\Http\Controllers\CartController::class, 'index'])->name('card.index');
 
     Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);

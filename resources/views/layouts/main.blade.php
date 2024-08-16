@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="/assets/vendor/pixel-rocket-shop/css/libs.bundle.css" />
+    <link rel="stylesheet" href="/assets/vendor/pixel-rocket-shop/css/libs.bundle.css"/>
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="/assets/vendor/pixel-rocket-shop/css/theme.bundle.css" />
+    <link rel="stylesheet" href="/assets/vendor/pixel-rocket-shop/css/theme.bundle.css"/>
 
     <!-- Google Fonts--><!-- ToDo: Move local -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,16 +49,17 @@
 
 </head>
 <body class="">
-<x-shop.nav-bar />
-
+<x-shop.nav-bar/>
+<x-results/>
 <!-- Main Section-->
 <section class="mt-5 ">
-@yield("content")
+
+    @yield("content")
 </section>
 
-<x-footer />
-<x-shop.offcanvas />
-<x-shop.search-overlay />
+<x-footer/>
+<x-shop.offcanvas/>
+<x-shop.search-overlay/>
 
 
 <script src="/assets/vendor/pixel-rocket-shop/js/vendor.bundle.js"></script>

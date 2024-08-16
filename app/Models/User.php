@@ -66,4 +66,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function cart(){
+        return \App\Models\Cart::where("user_id", $this->id)->get();
+
+    }
+
+    public function cart_count(){
+        $count = 0;
+        foreach($this->cart() as $item)
+        {
+            $count += $item->quantity;
+        }
+        return $count;
+    }
 }
