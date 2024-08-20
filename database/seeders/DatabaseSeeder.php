@@ -36,7 +36,8 @@ class DatabaseSeeder extends Seeder
         $admin->assignRole($superadmin);
 
         $this->call([
-
+            PermissionSeeder::class,
+            HistoryStatusSeeder::class,
         ]);
 
 

@@ -27,7 +27,15 @@
                         @foreach($user as $u)
                             <tr>
                                 <td>{{ $u->name_last }}, {{ $u->name_first }}</td>
-                                <td>{!! config("app.shop.currency_symbol") !!}</td>
+                                <td>
+                                    <span class="
+                                    @if($u->budget() < 0)
+                                    text-red
+                                    @endif
+                                    ">
+                                    {!! config("app.shop.currency_symbol") !!} {{ $u->budget_() }}</span>
+
+                                </td>
                                 <td><x-admin.edit-link href="/admin/user/{{$u->id}}/edit" /></td>
                             </tr>
                         @endforeach

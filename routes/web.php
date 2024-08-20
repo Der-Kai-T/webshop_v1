@@ -18,11 +18,6 @@ Route::middleware('auth')->group(function () {
         return view('index');
     });
 
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     Route::resource("/category", \App\Http\Controllers\CategoryController::class);
     Route::resource("/item", \App\Http\Controllers\ItemController::class);
 
@@ -31,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/cart/remove/{cart}", [\App\Http\Controllers\CartController::class, 'remove'])->name('card.remove');
     Route::get("/cart", [\App\Http\Controllers\CartController::class, 'index'])->name('card.index');
     Route::get("/checkout", [\App\Http\Controllers\CartController::class, 'checkout'])->name('card.checkout');
+    Route::post("/checkout", [\App\Http\Controllers\CartController::class, 'checkoutPost'])->name('card.checkout.post');
 
     Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
@@ -44,7 +40,12 @@ Route::middleware('auth')->group(function () {
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, 'addRole'])->name('admin.user.addRole');
     Route::post("/admin/user/{user}/role_remove", [\App\Http\Controllers\AdminUserController::class, 'removeRole'])->name('admin.user.removeRole');
+    Route::post("/admin/user/{user}/team_add",[\App\Http\Controllers\AdminUserController::class, 'addTeam'])->name('admin.user.addTeam');
+    Route::post("/admin/user/{user}/team_remove", [\App\Http\Controllers\AdminUserController::class, 'removeTeam'])->name('admin.user.removeTeam');
+    Route::get("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'createHistory'])->name('admin.user.createHistory');
+    Route::post("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'storeHistory'])->name('admin.user.storeHistory');
 
+    Route::resource("/admin/order", \App\Http\Controllers\AdminHistoryController::class);
 
     Route::resource("/admin/team", \App\Http\Controllers\AdminTeamController::class);
     Route::post("/admin/team/{team}/user_add", [\App\Http\Controllers\AdminTeamController::class, 'addUser'])->name('admin.team.addUser');
@@ -55,8 +56,11 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/role/{role}/permission_remove", [\App\Http\Controllers\AdminRoleController::class, 'removePermission'])->name('admin.role.removePermission');
 });
 
-require __DIR__.'/auth.php';
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function() {
+    return redirect("/");
+})->name('home');
+
+
+//require  __DIR__.'/auth.php';

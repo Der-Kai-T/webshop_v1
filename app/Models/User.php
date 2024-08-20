@@ -6,6 +6,8 @@ namespace App\Models;
 use App\Traits\CartHelper;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -91,4 +93,53 @@ class User extends Authenticatable
         }
         return $count;
     }
+
+    public function team() :BelongsToMany
+    {
+        return $this->belongsToMany(Team::class, 'team_users');
+    }
+
+    public function history() :HasMany
+    {
+        return  $this->hasMany(UserHistory::class);
+    }
+
+    public function budget()
+    {
+        $budget = 0;
+
+        foreach($this->history()->get() as $history){
+            $budget += $history->add ?? 0;
+            $budget -= $history->subtract ?? 0;
+        }
+        if($budget == 0){
+            return false;
+        }
+        return $budget;
+    }
+
+    public function budget_(){
+        return $this->format_price($this->budget());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

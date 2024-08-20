@@ -9,12 +9,12 @@
 
         <div class="row g-md-8 mt-4">
             <!-- Checkout Panel Left -->
-            <div class="col-12 col-lg-6 col-xl-7">
-                <div class="checkout-panel">
-                    <h5 class="title-checkout">Empfänger</h5>
-                </div>
-            </div>
-            <!-- / Checkout Panel Left -->
+{{--            <div class="col-12 col-lg-6 col-xl-7">--}}
+{{--                <div class="checkout-panel">--}}
+{{--                    <h5 class="title-checkout">Empfänger</h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- / Checkout Panel Left -->--}}
 
             <!-- Checkout Panel Summary -->
             <x-shop.cart.checkout.items

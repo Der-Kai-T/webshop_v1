@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\HistoryStatus;
 use App\Models\Item;
 use App\Models\ItemSize;
+use App\Models\UserHistory;
+use App\Models\UserHistoryItem;
 use App\Models\Variant;
 use App\Traits\CartHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -85,4 +89,84 @@ class CartController extends Controller
         ]);
     }
 
+    public function checkoutPost(Request $request)
+    {
+        $user = auth()->user();
+
+
+        $cart = Cart::where("user_id", $user->id)->get();
+
+        $cart_total = 0;
+        foreach ($cart as $cart_item) {
+            $cart_total += $cart_item->price * $cart_item->quantity;
+        }
+        $budget = $user->budget();
+        $remaining_budget = $budget - $cart_total;
+
+        //check if budget available
+        if($remaining_budget < 0){
+            return back()->with("error", "Budget nicht ausreichend um den Vorgang abzuschließen");
+        }
+
+        //create History entry
+        $history = UserHistory::create([
+            "user_id" => $user->id,
+            "subtract" => $cart_total,
+            "manual" => false,
+            "number" =>  Str::random(10),
+            "status_id" => HistoryStatus::where("name", "created")->first()->id,
+        ]);
+
+        //move items to history
+        foreach ($cart as $cart_item) {
+            UserHistoryItem::create([
+                "history_id" => $history->id,
+                "item_id" => $cart_item->item_id,
+                "quantity" => $cart_item->quantity,
+                "price" => $cart_item->price,
+                "size" => $cart_item->item_size_id,
+                "variant_id" => $cart_item->variant_id,
+            ]);
+        }
+
+        //clear cart
+        Cart::where("user_id", auth()->user()->id)
+            ->delete();
+
+        return redirect("/")->with("success", "Bestellung mit Bestellnummer  $history->number angelegt");
+
+
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

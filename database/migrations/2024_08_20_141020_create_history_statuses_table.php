@@ -7,18 +7,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('user_histories', function (Blueprint $table) {
+        Schema::create('history_statuses', function (Blueprint $table) {
             $table->uuid("id")->primary()->unique();
-            $table->uuid('user_id');
-            $table->decimal('add')->nullable();
-            $table->decimal('subtract')->nullable();
-            $table->boolean("manual")->default(false);
+            $table->string('name');
+            $table->string('next_name')->nullable();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('user_histories');
+        Schema::dropIfExists('history_statuses');
     }
 };

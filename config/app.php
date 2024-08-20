@@ -66,6 +66,7 @@ return [
     */
 
     'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'time_format' => env('APP_TIME_FORMAT', 'd.m.Y H:i'),
 
     /*
     |--------------------------------------------------------------------------
@@ -138,5 +139,6 @@ return [
         'decimal_separator' => env('APP_SHOP_DECIMAL_SEPARATOR', ','),
         'thousand_separator' => env('APP_SHOP_THOUSAND_SEPARATOR', '.'),
 
-    ]
+    ],
+
 ];

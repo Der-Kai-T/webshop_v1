@@ -263,7 +263,7 @@ return [
     'register_url' => '',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => "profile",
+    'profile_url' => "user/profile",
 
     /*
     |--------------------------------------------------------------------------
@@ -303,12 +303,6 @@ return [
 
         // Sidebar items:
 
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => '/profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
 
         [
             'header' => 'ARTIKELVERWALTUNG',
@@ -325,6 +319,18 @@ return [
             'url' => '/admin/item',
             'icon' => 'fas fa-list',
             'can' => 'admin.item'
+        ],
+
+        [
+            'header' => 'BESTELLUNGEN',
+            'can' => "admin.order",
+        ],
+
+        [
+            'text' => 'Bestellungen',
+            'url' => '/admin/order',
+            'icon' => 'fas fa-list',
+            'can' => 'admin.order'
         ],
 
 
