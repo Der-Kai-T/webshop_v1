@@ -21,7 +21,7 @@
             <h6 class="mb-2 fw-bolder">
                 <a href="/item/{{$element->item->id}}">{{ $element->item->name }}</a>
             </h6>
-            <small class="d-block text-muted">Variant / Color / {{ $element->size->size }}</small>
+            <small class="d-block text-muted"> Größe: {{ $element->size->size }}</small>
         </div>
     </td>
     <!-- Details -->

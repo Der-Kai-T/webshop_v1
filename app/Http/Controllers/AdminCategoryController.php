@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
 {
+    protected string $permission = "admin.category";
     public function index()
     {
+        $this->check_permission("index");
         $categories = Category::whereNull("parent_id")->get();
         return view("admin.category.index", [
             "category" => $categories,
@@ -17,11 +19,13 @@ class AdminCategoryController extends Controller
 
     public function create()
     {
+        $this->check_permission("create");
         return view("admin.category.form");
     }
 
     public function store(Request $request)
     {
+        $this->check_permission("create");
         $data = $request->validate([
             "name" => "required",
             "description" => "nullable",
@@ -35,11 +39,13 @@ class AdminCategoryController extends Controller
 
     public function edit(Category $category)
     {
+        $this->check_permission("update");
         return view("admin.category.form", ["category" => $category]);
     }
 
     public function update(Request $request, Category $category)
     {
+        $this->check_permission("update");
         $data = $request->validate([
             "name" => "required",
             "description" => "nullable",
@@ -53,6 +59,7 @@ class AdminCategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        $this->check_permission("delete");
         //delete all children recursively
         $this->deleteChildCategory($category);
 
@@ -62,7 +69,9 @@ class AdminCategoryController extends Controller
         return redirect("/admin/category/")->with("success", "Kategorie gelöscht");
     }
 
-    public function addChildCategory(Request $request, Category $category){
+    public function addChildCategory(Request $request, Category $category)
+    {
+        $this->check_permission("update");
         $data = $request->validate([
             "name" => "required",
             "description" => "nullable",
@@ -75,6 +84,7 @@ class AdminCategoryController extends Controller
 
     protected function deleteChildCategory(Category $category, int $depth = 0)
     {
+        $this->check_permission("delete");
         $depth++;
 
         //protection against rogue recursive function.

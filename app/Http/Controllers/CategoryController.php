@@ -15,16 +15,6 @@ class CategoryController extends Controller
        ]);
     }
 
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'name' => ['required'],
-            'parent_id' => ['nullable'],
-        ]);
-
-        return Category::create($data);
-    }
-
     public function show(Category $category)
     {
 
@@ -35,22 +25,4 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function update(Request $request, Category $category)
-    {
-        $data = $request->validate([
-            'name' => ['required'],
-            'parent_id' => ['nullable'],
-        ]);
-
-        $category->update($data);
-
-        return $category;
-    }
-
-    public function destroy(Category $category)
-    {
-        $category->delete();
-
-        return response()->json();
-    }
 }

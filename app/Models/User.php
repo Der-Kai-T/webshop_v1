@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\CartHelper;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,6 +12,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,7 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
     use Uuids;
+    use CartHelper;
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +31,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'name_first',
+        'name_last',
+        'employee_number',
         'email',
         'password',
     ];
@@ -67,6 +72,12 @@ class User extends Authenticatable
         ];
     }
 
+    public function name() : Attribute
+    {
+        return Attribute::make(
+           get: fn () => $this->name_first . ' ' . $this->name_last,
+        );
+    }
     public function cart(){
         return \App\Models\Cart::where("user_id", $this->id)->get();
 

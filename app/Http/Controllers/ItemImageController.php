@@ -10,8 +10,10 @@ use Intervention\Image\ImageManager;
 
 class ItemImageController extends Controller
 {
+    protected string $permission = "admin.item";
     public function upload(Request $request, Item $item)
     {
+        $this->check_permission("update");
         $request->validate([
             "file"  => "required",
         ]);

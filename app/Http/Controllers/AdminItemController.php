@@ -10,8 +10,11 @@ use Illuminate\Http\Request;
 
 class AdminItemController extends Controller
 {
+
+    protected string $permission = "admin.item";
     public function index()
     {
+        $this->check_permission("index");
         return view("admin.item.index", [
             "items" => Item::all()
         ]);
@@ -19,11 +22,13 @@ class AdminItemController extends Controller
 
     public function create()
     {
+        $this->check_permission("create");
         return view("admin.item.form");
     }
 
     public function store(Request $request)
     {
+        $this->check_permission("create");
         $data = $request->validate([
             "name" => "required",
             "description" => "required",
@@ -41,6 +46,7 @@ class AdminItemController extends Controller
 
     public function edit(Item $item)
     {
+        $this->check_permission("update");
         return view("admin.item.form", [
             "item" => $item
         ]);
@@ -48,6 +54,7 @@ class AdminItemController extends Controller
 
     public function update(Request $request, Item $item)
     {
+        $this->check_permission("update");
         $data = $request->validate([
             "name" => "required",
             "price" => "required",
@@ -63,6 +70,7 @@ class AdminItemController extends Controller
 
     public function destroy(Item $item)
     {
+        $this->check_permission("delete");
        //delete categories, variants, etc
         ItemCategory::where('item_id', $item->id)->delete();
         ItemVariant::where('item_id', $item->id)->delete();
@@ -79,6 +87,7 @@ class AdminItemController extends Controller
 
     public function addCategory(Request $request, Item $item)
     {
+        $this->check_permission("update");
         $data = $request->validate([
             "id" => 'required',
         ]);
@@ -95,6 +104,7 @@ class AdminItemController extends Controller
 
     public function removeCategory(Request $request, Item $item)
     {
+        $this->check_permission("update");
         $data = $request->validate([
             "id" => 'required',
         ]);
@@ -113,6 +123,7 @@ class AdminItemController extends Controller
 
     public function addSize(Request $request, Item $item)
     {
+        $this->check_permission("update");
         $data = $request->validate([
             "size" => "required",
             "price_set" => "nullable|numeric",

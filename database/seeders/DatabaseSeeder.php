@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
             "employee_number" => "1"
         ]);
 
-        echo "Admin created: " . $admin->email . " with Password  " . $password . "\n";
-
+        $this->command->info( "Super-Admin created: " . $admin->email . " with Password  " . $password );
+        $this->command->newLine();
         $superadmin = Role::create(["name" => "super-admin"]);
         $admin->assignRole($superadmin);
 

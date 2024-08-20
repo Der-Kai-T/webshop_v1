@@ -23,6 +23,6 @@
             <small class="d-block text-muted fw-bolder">Größe: {{$cartitem->size->size}}</small>
             <small class="d-block text-muted fw-bolder">Menge: {{$cartitem->quantity}}</small>
         </div>
-        <p class="fw-bolder text-end m-0">{!!   config("app.shop.currency_symbol") !!} {{ $cartitem->price_() }}</p>
+        <p class="fw-bolder text-end m-0">{!!   config("app.shop.currency_symbol") !!} {{ $cartitem->sum_() }}</p>
     </div>
 </div>

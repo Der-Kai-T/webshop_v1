@@ -310,25 +310,49 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
 
-        ['header' => 'ARTIKELVERWALTUNG'],
+        [
+            'header' => 'ARTIKELVERWALTUNG',
+            'can' => "admin.article"
+        ],
         [
             'text' => 'Kategorien',
             'url' => '/admin/category',
             'icon' => 'fas fa-list',
+            'can' => "admin.category"
         ],
         [
             'text' => 'Artikel',
             'url' => '/admin/item',
             'icon' => 'fas fa-list',
+            'can' => 'admin.item'
         ],
 
 
-        ['header' => 'ADMINISTRATION'],
+        [
+            'header' => 'ADMINISTRATION',
+            'can' => "admin.*"
+        ],
         [
             'text' => 'Benutzer',
             'icon' => 'fas fa-fw fa-users',
             'icon_color' => 'blue',
-            'url' => '/user',
+            'url' => '/admin/user',
+            'can' => "admin.user"
+        ],
+        [
+            'text' => 'Teams',
+            'icon' => 'fas fa-fw fa-users',
+            'icon_color' => 'green',
+            'url' => '/admin/team',
+            'can' => "admin.team"
+        ],
+
+        [
+            'text' => 'Rollen',
+            'icon' => 'fas fa-fw fa-users',
+            'icon_color' => 'red',
+            'url' => '/admin/role',
+            'can' => "admin.role"
         ],
 
     ],

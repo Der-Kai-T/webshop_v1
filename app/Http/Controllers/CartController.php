@@ -77,4 +77,12 @@ class CartController extends Controller
     }
 
 
+    public function checkout()
+    {
+        $cart = Cart::where("user_id", auth()->user()->id)->get();
+        return view("shop.cart.checkout", [
+            "cart" => $cart,
+        ]);
+    }
+
 }
