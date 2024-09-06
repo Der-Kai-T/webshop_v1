@@ -8,12 +8,12 @@
 
         <div class="row">
 
-            <x-shop.category.sidebar :category="$category"/>
+{{--            <x-shop.category.sidebar :category="$category"/>--}}
 
             <!-- Category Products-->
             <div class="col-12 col-lg-9">
 
-                <x-shop.category.top-toolbar/>
+{{--                <x-shop.category.top-toolbar/>--}}
 
                 <!-- Products-->
                 <div class="row g-4 mb-5">
@@ -28,9 +28,9 @@
                 <!-- / Products-->
 
 
-               <x-shop.category.pagination/>
+{{--               <x-shop.category.pagination/>--}}
 
-                <x-shop.category.related/>
+{{--                <x-shop.category.related/>--}}
 
             </div>
             <!-- / Category Products-->

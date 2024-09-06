@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\CartHelper;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class UserHistoryItem extends Model
 {
     use Uuids;
+    use CartHelper;
     protected $fillable = [
         'history_id',
         'item_id',
@@ -41,5 +43,14 @@ class UserHistoryItem extends Model
     public function item_name()
     {
         return $this->item->name . " (Größe " . $this->size->size .")";
+    }
+
+    public function price_()
+    {
+        return $this->format_price($this->price);
+    }
+
+    public function sum_(){
+        return $this->format_price($this->price * $this->quantity);
     }
 }

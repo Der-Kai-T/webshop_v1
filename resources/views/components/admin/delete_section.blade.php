@@ -3,7 +3,10 @@
         <div class="card">
 
             <div class="card-header">
-                <span class="btn btn-warning" onclick="$('#delete_form').show()"><span class="fas fa-trash mr-2"> </span> {{$name}} löschen</span>
+                <button class="btn btn-warning" onclick="$('#delete_form').show()">
+                    <span class="fas fa-trash mr-2"> </span>
+                    {{$name}} löschen
+                </button>
             </div>
 
             <div class="card-body" id="delete_form" style="display:none">

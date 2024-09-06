@@ -7,6 +7,74 @@
 
 @section("content")
 
+    @can("admin.order.confirm")
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Bestellungen</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped datatable">
+                            <thead>
+                            <tr>
+                                <th>Team</th>
+                                <th>Mitarbeiter</th>
+                                <th>Bestellung</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            @foreach(auth()->user()->team as $team)
+                                @foreach($team->user as $user)
+                                        <?php
+                                        $status_new = \App\Models\HistoryStatus::where("name", "created")->first()->id;
+                                        $orders = \App\Models\UserHistory::where("user_id", $user->id)
+                                            ->where("status_id", $status_new)
+                                            ->get();
+                                        ?>
+                                    @foreach($orders as $order)
+                                        <tr>
+                                            <td>{{ $team->name }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>
+                                                Bestellnummer: {{ $order->number }}
+                                                <ul>
+                                                    @foreach($order->items as $item)
+                                                        <li>{{ $item->quantity }}x {{ $item->item_name() }}</li>
+                                                    @endforeach
+                                                </ul>
+
+
+                                            </td>
+                                            <td>
+                                                <form action="/admin/order/{{ $order->id }}/confirm" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary">Bestellung bestätigen</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                @endforeach
+                            @endforeach
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endcan
+
+
+
+
+
     <div class="row">
         <div class="col-12">
             <div class="card">

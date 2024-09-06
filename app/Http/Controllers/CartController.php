@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCreatedMail;
 use App\Models\Cart;
 use App\Models\HistoryStatus;
 use App\Models\Item;
@@ -11,6 +12,7 @@ use App\Models\UserHistoryItem;
 use App\Models\Variant;
 use App\Traits\CartHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class CartController extends Controller
@@ -124,10 +126,12 @@ class CartController extends Controller
                 "item_id" => $cart_item->item_id,
                 "quantity" => $cart_item->quantity,
                 "price" => $cart_item->price,
-                "size" => $cart_item->item_size_id,
+                "item_size_id" => $cart_item->item_size_id,
                 "variant_id" => $cart_item->variant_id,
             ]);
         }
+
+        Mail::send(new OrderCreatedMail($history));
 
         //clear cart
         Cart::where("user_id", auth()->user()->id)

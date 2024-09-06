@@ -10,7 +10,10 @@ class ItemController extends Controller
 
     public function index()
     {
-        return redirect("/");
+        $items = Item::all();
+       return view("shop.item.index", [
+           "items" => $items
+       ]);
     }
 
     public function show(Item $item)

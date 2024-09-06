@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource("/category", \App\Http\Controllers\CategoryController::class);
     Route::resource("/item", \App\Http\Controllers\ItemController::class);
+    Route::get("/history", [\App\Http\Controllers\UserHistoryController::class, 'index'])->name('history');
 
 
     Route::post("/cart/add", [\App\Http\Controllers\CartController::class, 'add'])->name('card.add');
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'storeHistory'])->name('admin.user.storeHistory');
 
     Route::resource("/admin/order", \App\Http\Controllers\AdminHistoryController::class);
+    Route::post("/admin/order/{order}/confirm", [\App\Http\Controllers\AdminHistoryController::class, 'confirm'])->name('admin.order.confirm');
 
     Route::resource("/admin/team", \App\Http\Controllers\AdminTeamController::class);
     Route::post("/admin/team/{team}/user_add", [\App\Http\Controllers\AdminTeamController::class, 'addUser'])->name('admin.team.addUser');

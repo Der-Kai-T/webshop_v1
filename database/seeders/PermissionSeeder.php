@@ -34,6 +34,8 @@ class PermissionSeeder extends Seeder
 
         $custom_permissions = [
             "admin.user.history",
+            "admin.order.confirm",  //confirm order from employee (typically assigned to team-leaders)
+            "admin.order.order",    //order items externally (typically assigned to purchasing departement)
         ];
 
 

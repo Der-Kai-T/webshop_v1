@@ -164,7 +164,8 @@ class AdminUserController extends Controller
             "add" => $data['add'],
             "subtract" => $data['subtract'],
             "manual" => true,
-            "status_id" => HistoryStatus::where("name", "delivered")->first()->id
+            "status_id" => HistoryStatus::where("name", "delivered")->first()->id,
+            "number" => Str::random(10),
         ]);
 
 

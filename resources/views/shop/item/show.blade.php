@@ -5,14 +5,7 @@
     <!-- Product Top-->
     <section class="container">
 
-        <!-- Breadcrumbs-->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Activities</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Clothing</li>
-            </ol>
-        </nav>            <!-- /Breadcrumbs-->
+{{--<x-shop.item.breadcrumps/>--}}
 
         <div class="row g-5">
 
@@ -77,31 +70,33 @@
                         @csrf
                         <input type="hidden" name="item_id" value="{{$item->id}}">
 
-                    <!-- Product Options-->
-                    <div class="border-top mt-4 mb-3">
-{{--                        <x-shop.item.options.color/>--}}
-                        <div class="product-option-size">
-                            <small class="text-uppercase d-block fw-bolder mb-2">
-                                Größe (EU) : <span class="selected-option fw-bold" id="sizeLabel"></span>
-                            </small>
-                            <div class="form-group">
-                                <select required name="selectSize" class="form-control" id="selectSize">
-                                    <option value="">Bitte Größe wählen</option>
-                                    @foreach($item->sizes->sortBy("size") as $size)
-                                        <option value="{{$size->id}}">{{ $size->size }}</option>
-                                    @endforeach
-                                </select>
+                        <!-- Product Options-->
+                        <div class="border-top mt-4 mb-3">
+                            {{--                        <x-shop.item.options.color/>--}}
+                            <div class="product-option-size">
+                                <small class="text-uppercase d-block fw-bolder mb-2">
+                                    Größe (EU) : <span class="selected-option fw-bold" id="sizeLabel"></span>
+                                </small>
+                                <div class="form-group">
+                                    <select required name="selectSize" class="form-control" id="selectSize">
+                                        <option value="">Bitte Größe wählen</option>
+                                        @foreach($item->sizes->sortBy("size") as $size)
+                                            <option value="{{$size->id}}">{{ $size->size }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /Product Options-->
+                        <!-- /Product Options-->
 
-                    <!-- Add To Cart-->
-                    <div class="d-flex justify-content-between mt-3">
-                        <button type="submit" class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">zum Warenkorb hinzufügen</button>
-                       <!-- <button class="btn btn-orange btn-orange-chunky"><i class="ri-heart-line"></i></button>-->
-                    </div>
-                    <!-- /Add To Cart-->
+                        <!-- Add To Cart-->
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="submit" class="btn btn-dark btn-dark-chunky flex-grow-1 me-2 text-white">zum
+                                Warenkorb hinzufügen
+                            </button>
+                            <!-- <button class="btn btn-orange btn-orange-chunky"><i class="ri-heart-line"></i></button>-->
+                        </div>
+                        <!-- /Add To Cart-->
                     </form>
                     {{--<x-shop.item.socials/>--}}
 

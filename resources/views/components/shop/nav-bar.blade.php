@@ -35,7 +35,7 @@
                     {{-- <x-shop.nav.direct/>--}}
 
                     @foreach(\App\Models\Category::whereNull("parent_id")->orderBy("name")->get() as $category)
-                    <x-shop.nav.dropdown-category :category="$category"/>
+                        <x-shop.nav.dropdown-category :category="$category"/>
                     @endforeach
                 </ul>
             </div>
@@ -55,24 +55,35 @@
                 </li>
                 <!-- /Navbar Toggle Icon-->
 
-{{--                <!-- Navbar Search-->--}}
-{{--                <li class="ms-1 d-inline-block">--}}
-{{--                    <button--}}
-{{--                        class="btn btn-link px-2 text-decoration-none d-flex align-items-center"--}}
-{{--                        data-pr-search>--}}
-{{--                        <i class="ri-search-2-line ri-lg align-middle"></i>--}}
-{{--                    </button>--}}
-{{--                </li>--}}
-{{--                <!-- /Navbar Search-->--}}
+                {{--                <!-- Navbar Search-->--}}
+                {{--                <li class="ms-1 d-inline-block">--}}
+                {{--                    <button--}}
+                {{--                        class="btn btn-link px-2 text-decoration-none d-flex align-items-center"--}}
+                {{--                        data-pr-search>--}}
+                {{--                        <i class="ri-search-2-line ri-lg align-middle"></i>--}}
+                {{--                    </button>--}}
+                {{--                </li>--}}
+                {{--                <!-- /Navbar Search-->--}}
 
-{{--                <!-- Navbar Wishlist-->--}}
-{{--                <li class="ms-1 d-none d-lg-inline-block">--}}
-{{--                    <a class="btn btn-link px-2 py-0 text-decoration-none d-flex align-items-center"--}}
-{{--                       href="#">--}}
-{{--                        <i class="ri-heart-line ri-lg align-middle"></i>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <!-- /Navbar Wishlist-->--}}
+                {{--                <!-- Navbar Wishlist-->--}}
+                {{--                <li class="ms-1 d-none d-lg-inline-block">--}}
+                {{--                    <a class="btn btn-link px-2 py-0 text-decoration-none d-flex align-items-center"--}}
+                {{--                       href="#">--}}
+                {{--                        <i class="ri-heart-line ri-lg align-middle"></i>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
+                {{--                <!-- /Navbar Wishlist-->--}}
+
+                <!-- Navbar Archive-->
+                <li class="ms-1 d-none d-lg-inline-block">
+                    <a class="btn btn-link px-2 py-0 text-decoration-none d-flex align-items-center"
+                       href="/history"
+                       title="Archiv"
+                    >
+                        <i class="ri-archive-drawer-line ri-lg align-middle"></i>
+                    </a>
+                </li>
+                <!-- /Navbar Archive-->
 
                 <!-- Navbar Login-->
                 <li class="ms-1 d-none d-lg-inline-block">
@@ -90,8 +101,8 @@
                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                         <i class="ri-shopping-cart-2-line ri-lg align-middle position-relative z-index-10"></i>
                         <?php
-                            $user = auth()->user();
-                            $cart_count = $user->cart_count()
+                        $user = auth()->user();
+                        $cart_count = $user->cart_count()
                         ?>
                         <span
                             class="fs-xs fw-bolder f-w-5 f-h-5 bg-orange rounded-lg d-block lh-1 pt-1 position-absolute top-0 end-0 z-index-20 mt-2 text-white">{{ $cart_count }}</span>

@@ -27,12 +27,13 @@
                         </thead>
                         <tbody>
                     @foreach($roles as $role)
+
                     <tr>
                         <td>{{ $role->name }}</td>
                         <td>
                             <ul>
-                                @foreach($role->getPermissionNames() as $perm)
-                                    <li>{{ $perm }}</li>
+                                @foreach($role->permissions->sortBy("name") as $perm)
+                                    <li>{{ $perm->name }}</li>
                                 @endforeach
                             </ul>
 

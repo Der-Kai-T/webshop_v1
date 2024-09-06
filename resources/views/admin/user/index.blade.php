@@ -19,14 +19,22 @@
                         <thead>
                         <tr>
                             <th>Benutzer</th>
+                            <th>Team(s)</th>
                             <th>Budget</th>
-                            <th></th>
+                            <th>Aktionen</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($user as $u)
                             <tr>
                                 <td>{{ $u->name_last }}, {{ $u->name_first }}</td>
+                                <td>
+                                    <ul>
+                                        @foreach($u->team as $team)
+                                            <li>{{ $team->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
                                 <td>
                                     <span class="
                                     @if($u->budget() < 0)

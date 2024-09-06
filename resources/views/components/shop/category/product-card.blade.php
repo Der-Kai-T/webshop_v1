@@ -13,19 +13,19 @@
                      alt="{{ $item->main_image()->alt }}">
             </picture>
             <div class="card-actions">
-                <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Direkt-Auswahl</span>
-                <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
-                    @foreach($item->sizes->sortBy("size") as $size)
-                        <button class="btn btn-outline-dark btn-sm mx-2">{{ $size->size }}</button>
-                    @endforeach
+{{--                <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Direkt-Auswahl</span>--}}
+{{--                <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">--}}
+{{--                    @foreach($item->sizes->sortBy("size") as $size)--}}
+{{--                        <button class="btn btn-outline-dark btn-sm mx-2">{{ $size->size }}</button>--}}
+{{--                    @endforeach--}}
 
 
-                </div>
+{{--                </div>--}}
             </div>
         </div>
         <div class="card-body px-0 text-center">
             <div class="d-flex justify-content-center align-items-center mx-auto mb-1">
-                <x-shop.review-stars.small/>
+{{--                <x-shop.review-stars.small/>--}}
             </div>
             <a class="mb-0 mx-2 mx-md-4 fs-p link-cover text-decoration-none d-block text-center"
                href="/item/{{$item->id}}">{{ $item->name }}</a>
