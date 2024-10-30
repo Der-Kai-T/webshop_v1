@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/custom_frontend.js',
                 'resources/css/admin_customization.css',
+                'resources/js/custom.js',
             ],
             refresh: [{
                 paths: ['resources/**', 'config/**', 'app/Http/Controllers/**'],
