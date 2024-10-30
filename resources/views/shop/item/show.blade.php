@@ -50,10 +50,12 @@
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <p class="small fw-bolder text-uppercase tracking-wider text-muted mb-0 lh-1"></p>
                         <div class="d-flex justify-content-start align-items-center">
+                            @if(config("app.app_rating"))
                             <x-shop.review-stars.small
                                 stars="4.5"
                                 count="100"
                             />
+                            @endif
                         </div>
                     </div>
                     <h1 class="mb-2 fs-2 fw-bold">{{ $item->name }}</h1>

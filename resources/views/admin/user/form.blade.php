@@ -71,7 +71,7 @@ if (!isset($user)) {
                             <div class="col-6">
                                 <x-admin.form.input
                                         name="name_last"
-                                        label="Vorname"
+                                        label="Nachname"
                                         value="{{$user->name_last}}"
                                         required
                                 />

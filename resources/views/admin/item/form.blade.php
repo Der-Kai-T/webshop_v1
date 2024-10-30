@@ -208,22 +208,23 @@ if (isset($item)) {
                                                 required
                                             />
 
-                                            <x-admin.form.input
-                                                name="price_set"
-                                                label="Preis überschreiben"
-                                            />
+{{--                                            <x-admin.form.input--}}
+{{--                                                name="price_set"--}}
+{{--                                                label="Preis überschreiben"--}}
+{{--                                            />--}}
 
-                                            <x-admin.form.input
-                                                name="price_add"
-                                                label="Preis anpassen (+/-)"
-                                            />
+{{--                                            <x-admin.form.input--}}
+{{--                                                name="price_add"--}}
+{{--                                                label="Preis anpassen (+/-)"--}}
+{{--                                            />--}}
 
-                                            <x-admin.form.input
-                                                name="price_factor"
-                                                label="Preis multiplizieren mit"
-                                            />
+{{--                                            <x-admin.form.input--}}
+{{--                                                name="price_factor"--}}
+{{--                                                label="Preis multiplizieren mit"--}}
+{{--                                            />--}}
                                         </div>
                                         <div class="card-footer">
+
                                             <x-admin.form.submit/>
                                         </div>
                                     </div>

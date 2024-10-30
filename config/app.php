@@ -85,6 +85,9 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+    //Activate the rating system and design
+    'app_rating' => env('APP_RATING', false),
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
