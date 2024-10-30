@@ -49,10 +49,13 @@ if (isset($item)) {
                                     name="description"
                                     label="Beschreibung"
                                     value="{{$item->description}}"
+                                    oninput="update_markdown()"
                                     required
                                 />
                             </div>
                         </div>
+
+                        <x-admin.md-preview source="description"/>
 
                         <div class="row">
                             <div class="col-4">
@@ -63,8 +66,6 @@ if (isset($item)) {
                                     required
                                 />
                             </div>
-
-
                         </div>
 
                     </div>

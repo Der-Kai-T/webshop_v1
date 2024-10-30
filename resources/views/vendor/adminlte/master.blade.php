@@ -55,6 +55,10 @@
     <link href="{{ asset("/vendor/dropzone/min/dropzone.min.css") }}" rel="stylesheet">
     <script src="{{ asset("/vendor/dropzone/min/dropzone.min.js") }}"></script>
 
+    <!-- Marked.js and DOMpurify -->
+    <script src="{{ asset("/vendor/marked/marked.js") }}"></script>
+    <script src="{{ asset("/vendor/dompurify/purify.min.js") }}"></script>
+
     {{-- Livewire Styles --}}
     @if(config('adminlte.livewire'))
         @if(intval(app()->version()) >= 7)

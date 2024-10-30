@@ -131,11 +131,7 @@
                          aria-labelledby="details-tab">
                         <div class="col-12 col-lg-10 mx-auto">
                             <div class="row g-5">
-                                <div class="col-12 col-md-6">
-                                    <p>
-                                        {{ $item->description }}
-                                    </p>
-                                </div>
+                                <div class="col-12 col-md-12" id="item_content_description">{{ $item->description }}</div>
                                 {{--                                <div class="col-12 col-md-6">--}}
                                 {{--                                    <ul>--}}
                                 {{--                                        <li>Stretchy cotton-modal jersey stripe</li>--}}
@@ -163,6 +159,13 @@
         <!-- / Product Tabs-->
 
     </section>
+
+    <script>
+        $(document).ready(function () {
+            let content = $('#item_content_description');
+            content.html(DOMPurify.sanitize(marked.parse(content.html())));
+        });
+    </script>
 
     {{--    <x-shop.item.related-products/>--}}
 

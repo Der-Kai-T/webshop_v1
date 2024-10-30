@@ -33,6 +33,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="{{ asset("/vendor/jquery/js/jquery-3.7.1.min.js") }}"></script>
+
+    <!-- Marked.js and DOMpurify -->
+    <script src="{{ asset("/vendor/marked/marked.js") }}"></script>
+    <script src="{{ asset("/vendor/dompurify/purify.min.js") }}"></script>
+
     <!-- Fix for custom scrollbar if JS is disabled-->
     <noscript>
         <style>
