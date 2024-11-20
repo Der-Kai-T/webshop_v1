@@ -39,6 +39,7 @@
                                             <td>{{ $team->name }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>
+                                                Bestelldatum: {{ $order->created_at->format("d.m.Y H:i") }}
                                                 Bestellnummer: {{ $order->number }}
                                                 <ul>
                                                     @foreach($order->items as $item)
