@@ -41,7 +41,7 @@
                                     @if(!is_null($o->items))
                                     <ul>
                                         @foreach($o->items as $item)
-                                            <li>{{ $item->item->name }}</li>
+                                            <li>{{ $item->quantity }}x {{ $item->item_name() }}</li>
                                         @endforeach
                                     </ul>
                                          @endif

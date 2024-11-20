@@ -15,7 +15,7 @@ class AdminHistoryController extends Controller
     {
         $this->check_permission("admin.order.index");
         return view('admin.history.index', [
-            "order" => UserHistory::all(),
+            "order" => UserHistory::all()->sortByDesc("created_at"),
         ]);
     }
 
