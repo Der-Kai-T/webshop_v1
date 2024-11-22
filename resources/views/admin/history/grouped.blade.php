@@ -47,7 +47,8 @@
                                                         $ordered_details[] = [
                                                             "quantity" => $d->quantity,
                                                             "name" => $d->history->user->name,
-                                                            "status" => $d->history->status->name
+                                                            "status" => $d->history->status->name,
+                                                            "date" => $d->history->created_at->format("d.m.Y H:i"),
                                                         ];
                                                     }
                                                 }
@@ -65,6 +66,7 @@
                                                             <th>Anz.</th>
                                                             <th>Besteller</th>
                                                             <th>Status</th>
+                                                            <th>Datum</th>
                                                         </tr>
                                                         </thead>
 
@@ -73,13 +75,14 @@
                                                             <td>{{ $od['quantity'] }}</td>
                                                             <td>{{ $od['name'] }}</td>
                                                             <td>{{ $od['status'] }}</td>
+                                                            <td>{{ $od['date'] }}</td>
                                                         </tr>
                                                         @endforeach
 
 
 
 
-                                                       
+
                                                     </table>
 
                                                 </td>
