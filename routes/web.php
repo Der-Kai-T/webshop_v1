@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'storeHistory'])->name('admin.user.storeHistory');
 
     Route::resource("/admin/order", \App\Http\Controllers\AdminHistoryController::class);
+    Route::get("/admin/order_grouped", [\App\Http\Controllers\AdminHistoryController::class, 'orderGrouped'])->name('admin.order.grouped');
     Route::post("/admin/order/{order}/confirm", [\App\Http\Controllers\AdminHistoryController::class, 'confirm'])->name('admin.order.confirm');
 
     Route::resource("/admin/team", \App\Http\Controllers\AdminTeamController::class);

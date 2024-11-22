@@ -333,6 +333,13 @@ return [
             'can' => 'admin.order'
         ],
 
+        [
+            'text' => 'Bestellungen gruppiert',
+            'url' => '/admin/order_grouped',
+            'icon' => 'fas fa-list',
+            'can' => 'admin.order'
+        ],
+
 
         [
             'header' => 'ADMINISTRATION',

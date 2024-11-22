@@ -53,4 +53,10 @@ class UserHistoryItem extends Model
     public function sum_(){
         return $this->format_price($this->price * $this->quantity);
     }
+
+    public function history() : BelongsTo
+    {
+        return $this->belongsTo(UserHistory::class, 'history_id', 'id');
+    }
+
 }

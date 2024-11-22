@@ -45,4 +45,5 @@ class Item extends Model
     {
         return $this->images->sortBy("sort")->first();
     }
+
 }

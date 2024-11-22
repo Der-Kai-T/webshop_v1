@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrderConfirmedMail;
 use App\Models\HistoryStatus;
+use App\Models\Item;
 use App\Models\UserHistory;
 use App\Models\UserHistoryItem;
 use Illuminate\Http\Request;
@@ -16,6 +17,14 @@ class AdminHistoryController extends Controller
         $this->check_permission("admin.order.index");
         return view('admin.history.index', [
             "order" => UserHistory::all()->sortByDesc("created_at"),
+        ]);
+    }
+
+    public function orderGrouped(){
+        $this->check_permission("admin.order.index");
+        $items = Item::all()->sortBy("name");
+        return view('admin.history.grouped', [
+           "items" => $items,
         ]);
     }
 
