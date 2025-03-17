@@ -98,7 +98,7 @@
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>
-
+<x-toaster-hub />
     {{-- Body Content --}}
     @yield('body')
 

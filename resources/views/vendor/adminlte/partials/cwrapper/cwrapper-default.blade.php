@@ -25,6 +25,8 @@
     @endif
 
 
+
+
     {{--    Operation Result Area --}}
     @if (session()->has('success'))
         <section class="content">

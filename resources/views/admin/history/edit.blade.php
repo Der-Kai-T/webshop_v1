@@ -57,6 +57,19 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Status ändern</h4>
+                </div>
+                <div class="card-body">
+                <livewire:app.order.status :order="$order"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <x-admin.delete_section

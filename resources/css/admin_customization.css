@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@source "../views";
+
 .debug1{
     border: 1px solid red !important;
 }
