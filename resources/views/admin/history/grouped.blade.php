@@ -74,7 +74,7 @@
                                                         <tr>
                                                             <td>{{ $od['quantity'] }}</td>
                                                             <td>{{ $od['name'] }}</td>
-                                                            <td>{{ $od['status'] }}</td>
+                                                            <td>{{ __($od['status']) }}</td>
                                                             <td>{{ $od['date'] }}</td>
                                                         </tr>
                                                         @endforeach
