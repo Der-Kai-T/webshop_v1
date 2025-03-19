@@ -42,7 +42,7 @@
                                                     ->get();
                                                 foreach ($db as $d) {
 
-                                                    if ($d->history->status->name == "created") {
+                                                    if ($d->history->status->name == "created" || $d->history->status->name == "confirmed") {
                                                         $s->ordered_sum += $d->quantity;
                                                         $ordered_details[] = [
                                                             "quantity" => $d->quantity,

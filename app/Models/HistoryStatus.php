@@ -11,5 +11,11 @@ class HistoryStatus extends Model
     protected $fillable = [
         'name',
         'next_name',
+        'sort',
+        'show_in_group',
+    ];
+
+    protected $casts = [
+        'show_in_group' => 'boolean',
     ];
 }

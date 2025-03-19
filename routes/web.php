@@ -1,7 +1,7 @@
 <?php
 
 
-
+use App\Http\Controllers\AdminStatusController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'createHistory'])->name('admin.user.createHistory');
     Route::post("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'storeHistory'])->name('admin.user.storeHistory');
 
-    Route::resource("/admin/order", \App\Http\Controllers\AdminHistoryController::class);
+    Route::resource("/admin/order", \App\Http\Controllers\AdminHistoryController::class)->names("admin.order");
     Route::get("/admin/order_grouped", [\App\Http\Controllers\AdminHistoryController::class, 'orderGrouped'])->name('admin.order.grouped');
     Route::post("/admin/order/{order}/confirm", [\App\Http\Controllers\AdminHistoryController::class, 'confirm'])->name('admin.order.confirm');
 
@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::resource("/admin/role", \App\Http\Controllers\AdminRoleController::class);
     Route::post("/admin/role/{role}/permission_add", [\App\Http\Controllers\AdminRoleController::class, 'addPermission'])->name('admin.role.addPermission');
     Route::post("/admin/role/{role}/permission_remove", [\App\Http\Controllers\AdminRoleController::class, 'removePermission'])->name('admin.role.removePermission');
+
+    Route::resource("/admin/status", AdminStatusController::class)->names("admin.status");
 });
 
 

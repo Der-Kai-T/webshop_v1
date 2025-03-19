@@ -31,8 +31,15 @@ class AdminHistoryController extends Controller
     public function edit(UserHistory $order)
     {
         $this->check_permission("admin.order.edit");
+        $query = UserHistoryItem::query()
+            ->where("history_id", $order->id)
+            ->with(["item" =>  function ($query) {
+                $query->orderBy("name");
+            }])
+            ;
         return view('admin.history.edit', [
             "order" => $order,
+            'query' => $query
         ]);
     }
 

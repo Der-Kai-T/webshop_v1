@@ -30,6 +30,7 @@ class PermissionSeeder extends Seeder
             "admin.role",
             "admin.article",
             "admin.order",
+            "admin.status"
         ];
 
         $custom_permissions = [

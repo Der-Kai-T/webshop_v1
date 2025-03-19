@@ -5,3 +5,13 @@ $(document).ready( function () {
         paging: false,
     });
 } );
+
+$(document).ready( function () {
+    $('#orders-datatable').DataTable({
+        paging: false,
+        order: [[0, 'desc']],
+        columnDefs: [
+            { orderable: false, targets: 6}
+        ]
+    });
+} );

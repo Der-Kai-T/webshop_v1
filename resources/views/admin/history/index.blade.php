@@ -14,11 +14,13 @@
                     <h3 class="card-title">Bestellübersicht</h3>
                 </div>
                 <div class="card-body">
+{{--                    <livewire:order-table />--}}
                     <table class="table table-striped" id="orders-datatable">
                         <thead>
                         <tr>
-                            <th>Bestellnummer</th>
+
                             <th>Datum</th>
+                            <th>Bestellnummer</th>
                             <th>Benutzer</th>
                             <th>Inhalt</th>
                             <th>+/-</th>
@@ -29,11 +31,12 @@
                         <tbody>
                         @foreach($order as $o)
                             <tr>
-                                <td>{{ $o->number }}</td>
+
                                 <td>
                                     <span style="display: none">{{ $o->created_at }}</span>
                                     {{ $o->created_at->format(config("app.time_format")) }}
                                 </td>
+                                <td>{{ $o->number }}</td>
                                 <td>
                                     {{ $o->user->name }}
                                 </td>

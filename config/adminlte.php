@@ -368,6 +368,14 @@ return [
             'can' => "admin.role"
         ],
 
+        [
+            'text' => 'Status',
+            'icon' => 'fas fa-fw fa-list',
+
+            'url' => '/admin/status',
+            'can' => "admin.status"
+        ],
+
     ],
 
     /*
