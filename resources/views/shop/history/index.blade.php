@@ -84,7 +84,7 @@
                             <td>
                                 <ul>
                                     @foreach($his->items as $item)
-                                        <li>{{ $item->item->name }}</li>
+                                        <li>{{ $item->quantity }}x {{ $item->item->name }} <span class="bg-info ml-1 px-1 small rounded-lg">{{ $item->size->size }}</span></li>
                                     @endforeach
                                 </ul>
                             </td>
