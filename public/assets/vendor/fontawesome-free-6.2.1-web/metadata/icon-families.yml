@@ -13737,7 +13737,7 @@ first-order:
     pro:
       - family: classic
         style: brands
-  label: First Order
+  label: First Orders
   unicode: f2b0
   voted: false
 first-order-alt:
@@ -13750,7 +13750,7 @@ first-order-alt:
     pro:
       - family: classic
         style: brands
-  label: Alternate First Order
+  label: Alternate First Orders
   unicode: f50a
   voted: false
 firstdraft:
@@ -18667,7 +18667,7 @@ jedi-order:
     pro:
       - family: classic
         style: brands
-  label: Jedi Order
+  label: Jedi Orders
   unicode: f50e
   voted: false
 jenkins:

@@ -18,15 +18,17 @@
                         </thead>
                         <tbody>
                         @foreach($order->items as $item)
-                            <tr>
+                            <tr
+                            @if(!is_null($itemToDelete) && $itemToDelete->id == $item->id)
+                                class="mark-delete-row"
+                            @endif
+                            >
                                 <td>
-                                    <button class="btn btn-warning btn-sm" id="confirmButton_{{$item->id}}"
-                                            onclick="toggle('{{ $item->id }}')"><span class="fas fa-trash"></span>
+                                    <button class="btn btn-warning btn-sm float-end"
+                                            wire:click="prepareDelete('{{ $item->id }}')"
+                                            ><span class="fas fa-trash"></span>
                                     </button>
                                     {{ $item->item->name }}
-                                    <button wire:click="delete('{{ $item->id }}')" class="btn btn-danger btn-sm"
-                                            style="display: none" id="deleteButton_{{$item->id}}"><span
-                                            class="fas fa-trash-alt"></span></button>
                                 </td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>{!!  config("app.shop.currency_symbol") !!} {{ $item->price_() }}</td>
@@ -38,16 +40,10 @@
                         </tbody>
 
                     </table>
-                    <script>
-                        function toggle(id) {
-                            $('#confirmButton_' + id).toggle();
-                            $('#deleteButton_' + id).toggle();
-                        }
-                    </script>
                 </div>
 
                 <div class="card-footer">
-                    <div class="float-right">
+                    <div class="float-end">
                         @php($plus = number_format($order->add , 2,config("app.shop.decimal_separator"), config("app.shop.thousand_separator")))
                         @php($minus = number_format($order->subtract*-1 , 2,config("app.shop.decimal_separator"), config("app.shop.thousand_separator")))
                         Konto-Veränderung:
@@ -65,4 +61,13 @@
             </div>
         </div>
     </div>
+
+    <x-app.helper.modal-confirm-delete
+        id="deleteItem"
+        title="Löschen bestätigen"
+        delete-function="confirmDelete"
+        abort-function="abortDelete"
+        >
+        Bitte bestätigen Sie den Löschvorgang
+    </x-app.helper.modal-confirm-delete>
 </div>

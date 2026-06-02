@@ -29,7 +29,18 @@ Route::middleware('auth')->group(function () {
     Route::get("/checkout", [\App\Http\Controllers\CartController::class, 'checkout'])->name('card.checkout');
     Route::post("/checkout", [\App\Http\Controllers\CartController::class, 'checkoutPost'])->name('card.checkout.post');
 
-    Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
+
+    # Admin
+    //Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
+    Route::livewire("/admin", \App\Livewire\App\Admin\Dashboard::class)->name("admin.index");
+    Route::livewire("/admin/dashboard", \App\Livewire\App\Admin\Dashboard::class)->name("admin.dashboard");
+
+
+    ##Orders
+    Route::livewire("/admin/orders", \App\Livewire\App\Admin\Orders::class)->name("admin.orders");
+    Route::livewire("/admin/orders/{order}", \App\Livewire\App\Admin\OrderEditor::class)->name("admin.order.edit");
+
+
     Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
     Route::post("/admin/category/{category}/child_category", [\App\Http\Controllers\AdminCategoryController::class, 'addChildCategory'])->name('admin.category.addChildCategory');
     Route::resource("/admin/item", \App\Http\Controllers\AdminItemController::class);
@@ -38,6 +49,10 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/item/{item}/size_add", [\App\Http\Controllers\AdminItemController::class, 'addSize'])->name('admin.item.addSize');
     Route::post("/admin/item/{item}/upload", [\App\Http\Controllers\ItemImageController::class, 'upload'])->name('admin.item.upload');
 
+
+    ##Users
+    Route::livewire("/admin/users", \App\Livewire\App\Admin\Users::class)->name("admin.users");
+    /*
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, 'addRole'])->name('admin.user.addRole');
     Route::post("/admin/user/{user}/role_remove", [\App\Http\Controllers\AdminUserController::class, 'removeRole'])->name('admin.user.removeRole');
@@ -45,11 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/admin/user/{user}/team_remove", [\App\Http\Controllers\AdminUserController::class, 'removeTeam'])->name('admin.user.removeTeam');
     Route::get("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'createHistory'])->name('admin.user.createHistory');
     Route::post("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'storeHistory'])->name('admin.user.storeHistory');
-
-    Route::resource("/admin/order", \App\Http\Controllers\AdminHistoryController::class)->names("admin.order");
-    Route::get("/admin/order_grouped", [\App\Http\Controllers\AdminHistoryController::class, 'orderGrouped'])->name('admin.order.grouped');
-    Route::post("/admin/order/{order}/confirm", [\App\Http\Controllers\AdminHistoryController::class, 'confirm'])->name('admin.order.confirm');
-
+*/
     Route::resource("/admin/team", \App\Http\Controllers\AdminTeamController::class);
     Route::post("/admin/team/{team}/user_add", [\App\Http\Controllers\AdminTeamController::class, 'addUser'])->name('admin.team.addUser');
     Route::post("/admin/team/{team}/user_remove", [\App\Http\Controllers\AdminTeamController::class, 'removeUser'])->name('admin.team.removeUser');

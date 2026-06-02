@@ -188,6 +188,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "name_first"  => "Vorname",
+        "name_last"  => "Nachname",
+        "employee_number" => "Mitarbeiternummer",
+        "email" => "E-Mail",
+        "team_ids" => "Teams",
+        "role_names" => "Rollen"
+    ],
 
 ];

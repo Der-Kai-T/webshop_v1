@@ -3,15 +3,19 @@
 namespace App\Livewire\App\Order;
 
 use App\Livewire\CustomComponent;
+use App\Models\UserHistory;
 use App\Models\UserHistoryItem;
 
+use App\Traits\BootstrapTrait;
+use App\Traits\ToastTrait;
 use Masmerise\Toaster\Toaster;
 
 class Details extends CustomComponent
 {
-
-    public $order;
-    public $item;
+    use BootstrapTrait;
+    use ToastTrait;
+    public UserHistory $order;
+    public ?UserHistoryItem $itemToDelete = null;
 
     public function mount($order){
         $this->order = $order;
@@ -23,21 +27,36 @@ class Details extends CustomComponent
         ]);
     }
 
-    public function delete(UserHistoryItem $item){
-        $this->check_permission("admin.order.edit");
-        $this->item = $item;
-        $item_name = $this->item->quantity . "x " . $this->item->item_name();
+    public function prepareDelete($itemId)
+    {
+        $this->successToast();
+        $this->itemToDelete = UserHistoryItem::find($itemId);
 
-        //delete order, then calculate new order price
-        $this->item->delete();
+        if(is_null($this->itemToDelete)){
+            $this->notFoundToast();
+        }else{
+            $this->dispatchModal("deleteItem");
+        }
+    }
+    public function abortDelete()
+    {
+        $this->itemToDelete = null;
+        $this->dismissModal("deleteItem");
+    }
+
+    public function confirmDelete()
+    {
+        $this->check_permission("admin.order.edit");
+        $this->itemToDelete->delete();
 
         $new_sum = 0;
-        foreach ($this->order->items as $item){
-            $new_sum += $item->quantity * $item->price;
+        foreach($this->order->items as $item){
+            $new_sum += $item->price * $item->quantity;
         }
         $this->order->subtract = $new_sum;
         $this->order->save();
 
-        Toaster::success($item_name . " ".__("deleted"));
+        $this->successToast("Eintrag gelöscht");
     }
+
 }
