@@ -30,6 +30,7 @@ class Users extends Component
         $this->users = \App\Models\User::all()->sortBy("name_last");
         $this->teams = \App\Models\Team::all()->sortBy("name");
         $this->roles = \App\Models\Role::all()->sortBy("name");
+        //$this->form->mount($this->users->first());
     }
 
     public function editUser($userId)
@@ -43,6 +44,27 @@ class Users extends Component
         $this->form->mount($user);
     }
 
+    public function formSubmit()
+    {
+        if(is_null($this->form->user)){
+            if($user = $this->form->create()){
+                $this->successToast();
+                $this->loadData();
+                $this->resetErrorBag();
+                $this->form->mount($user);
+            }else{
+                $this->errorToast();
+            }
+        }else{
+            if($this->form->update()){
+                $this->successToast();
+                $this->loadData();
+                $this->resetErrorBag();
+            }else{
+                $this->errorToast();
+            }
+        }
+    }
     public function updateTeamsAndRoles()
     {
         if($this->form->teamsAndRoles()) {
@@ -51,6 +73,14 @@ class Users extends Component
         }
     }
 
+    public function createOrder(){
+        if($this->form->newOrder()){
+            $this->successToast();
+            $this->loadData();
+        }else{
+            $this->errorToast();
+        }
+    }
 
 
     public function formAbort()

@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
 
     ##Orders
     Route::livewire("/admin/orders", \App\Livewire\App\Admin\Orders::class)->name("admin.orders");
+    Route::livewire("/admin/orders_grouped", \App\Livewire\App\Admin\OrdersGrouped::class)->name("admin.orders-grouped");
     Route::livewire("/admin/orders/{order}", \App\Livewire\App\Admin\OrderEditor::class)->name("admin.order.edit");
 
 
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
 
     ##Users
     Route::livewire("/admin/users", \App\Livewire\App\Admin\Users::class)->name("admin.users");
+    Route::livewire("/admin/teams", \App\Livewire\App\Admin\Teams::class)->name("admin.teams");
     /*
     Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
     Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, 'addRole'])->name('admin.user.addRole');

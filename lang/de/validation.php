@@ -194,7 +194,8 @@ return [
         "employee_number" => "Mitarbeiternummer",
         "email" => "E-Mail",
         "team_ids" => "Teams",
-        "role_names" => "Rollen"
+        "role_names" => "Rollen",
+        "value" => "Wert",
     ],
 
 ];

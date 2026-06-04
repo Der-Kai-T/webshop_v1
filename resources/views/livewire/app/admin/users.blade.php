@@ -107,6 +107,17 @@
                 <div class="card mt-2">
                     <div class="card-header">
                         Bestell-Historie
+
+                        <div class="card-tools">
+                            <button type="button"
+                                    class="btn btn-primary btn-sm"
+                                    data-bs-target="#newOrderModal"
+                                    data-bs-toggle="modal"
+                            >
+                                <span class="fas fa-plus-circle" ></span>
+
+                            </button>
+                        </div>
                     </div>
                     <div class="card-body p-0">
                         <table class="table">
@@ -148,6 +159,14 @@
                     </div>
                 </div>
 
+            <x-app.helper.modal
+                id="newOrderModal"
+                title="neue Buchung anlegen"
+                submit-function="createOrder"
+            >
+                <x-app.form.input type="number" model="value" />
+                <x-app.form.checkbox model="negative" label="Betrag abziehen?" />
+            </x-app.helper.modal>
                 <div class="card mt-2">
                     <form wire:submit="updateTeamsAndRoles">
                         <div class="card-header">

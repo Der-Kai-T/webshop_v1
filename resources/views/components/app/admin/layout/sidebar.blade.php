@@ -73,10 +73,10 @@
 
                     <x-app.admin.layout.sidebar.item
                         class="application"
-                        text="Bestellungen gruppiert"
+                        text="offene Bestellungen (gruppiert)"
                         icon="bi bi-list-task"
-                        route="admin.dashboard"
-                        can="legal_field.read"
+                        route="admin.orders-grouped"
+                        can="admin.order"
                     />
 
 
@@ -92,8 +92,8 @@
                         class="admin"
                         text="Teams"
                         icon="bi bi-building"
-                        route="admin.dashboard"
-                        can="admin.dashboard"
+                        route="admin.teams"
+                        can="admin.teams"
                     />
                     <x-app.admin.layout.sidebar.item
                         class="admin"
