@@ -1,4 +1,7 @@
 <div {{ $attributes->class(['mb-3']) }}>
+    @php
+        $binding = ($form ?? 'form').'.'.$model;
+    @endphp
     <label for="{{$model}}" class="form-label">{{ __($label ?? "validation.attributes.$model") }} @if(isset($optional))
             <small>optional</small>
         @endif</label>
@@ -8,15 +11,15 @@
         @endif
         type="{{ $type ?? "text" }}"
         class="form-control"
-        id="{{ $form ?? "form" }}.{{ $model  }}"
-        wire:model="{{ $form ?? "form" }}.{{ $model }}"
+        id="{{ $binding }}"
+        wire:model="{{ $binding }}"
         @if(isset($placeholder))
         placeholder="{{ $placeholder }}"
         @endif
 
     >
 
-    @error("form.$model")
+    @error($binding)
     <span class="form-validation-error">{{ $message }}</span>
     @enderror
 </div>

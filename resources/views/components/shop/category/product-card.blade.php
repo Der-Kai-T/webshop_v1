@@ -4,13 +4,13 @@
         <div class="card-header">
             <picture class="position-relative overflow-hidden d-block bg-light">
                 <img class="w-100 img-fluid position-relative z-index-10" title=""
-                     src="{{ asset($item->main_image()->thumb())  }}"
-                     alt="{{ $item->main_image()->alt }}">
+                     src="{{ asset($item->main_image()?->thumb())  }}"
+                     alt="{{ $item->main_image()?->alt }}">
             </picture>
             <picture class="position-absolute z-index-20 start-0 top-0 hover-show bg-light">
                 <img class="w-100 img-fluid" title=""
-                     src="{{ asset($item->main_image()->thumb())  }}"
-                     alt="{{ $item->main_image()->alt }}">
+                     src="{{ asset($item->main_image()?->thumb())  }}"
+                     alt="{{ $item->main_image()?->alt }}">
             </picture>
             <div class="card-actions">
 {{--                <span class="small text-uppercase tracking-wide fw-bolder text-center d-block">Direkt-Auswahl</span>--}}

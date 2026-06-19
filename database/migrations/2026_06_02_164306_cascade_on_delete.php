@@ -20,7 +20,7 @@ return new class extends Migration {
         });
 
         try{
-            Schema::table('user_histories', function (Blueprint $table) {
+            Schema::table('user_history_items', function (Blueprint $table) {
                 $table->dropForeign(['history_id']);
             });
         }catch (Exception $e){

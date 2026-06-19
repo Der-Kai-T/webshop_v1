@@ -50,16 +50,16 @@
                         class="application"
                         text="Kategorien"
                         icon="bi bi-list-task"
-                        route="admin.dashboard"
-                        can="legal_field.read"
+                        route="admin.categories"
+                        can="admin.category"
                     />
 
                     <x-app.admin.layout.sidebar.item
                         class="application"
                         text="Artikel"
                         icon="bi bi-list-task"
-                        route="admin.dashboard"
-                        can="legal_field.read"
+                        route="admin.items"
+                        can="admin.item"
                     />
 
                     <x-app.admin.layout.sidebar.header text="Bestellungen" can="admin" class="application mt-4"/>
@@ -75,7 +75,7 @@
                         class="application"
                         text="offene Bestellungen (gruppiert)"
                         icon="bi bi-list-task"
-                        route="admin.orders-grouped"
+                        route="admin.grouped-orders"
                         can="admin.order"
                     />
 
@@ -86,29 +86,29 @@
                         text="Benutzer"
                         icon="bi bi-person"
                         route="admin.users"
-                        can="admin.users"
+                        can="admin.user"
                     />
                     <x-app.admin.layout.sidebar.item
                         class="admin"
                         text="Teams"
                         icon="bi bi-building"
                         route="admin.teams"
-                        can="admin.teams"
+                        can="admin.team"
                     />
                     <x-app.admin.layout.sidebar.item
                         class="admin"
                         text="Rollen"
                         icon="bi bi-people"
-                        route="admin.dashboard"
-                        can="admin.roles"
+                        route="admin.roles"
+                        can="admin.role"
                     />
 
                     <x-app.admin.layout.sidebar.item
                         class="admin"
                         text="Status"
                         icon="bi bi-people"
-                        route="admin.dashboard"
-                        can="admin.roles"
+                        route="admin.states"
+                        can="admin.states"
                     />
 
                 </ul>

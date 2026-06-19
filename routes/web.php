@@ -31,47 +31,30 @@ Route::middleware('auth')->group(function () {
 
 
     # Admin
-    //Route::get("/admin", function () { return view('admin.index'); })->name('admin.index');
     Route::livewire("/admin", \App\Livewire\App\Admin\Dashboard::class)->name("admin.index");
+    Route::livewire("/admin/check_permissions", \App\Livewire\App\Admin\CheckPermissions::class)->name("admin.check-permissions");
     Route::livewire("/admin/dashboard", \App\Livewire\App\Admin\Dashboard::class)->name("admin.dashboard");
 
 
     ##Orders
     Route::livewire("/admin/orders", \App\Livewire\App\Admin\Orders::class)->name("admin.orders");
-    Route::livewire("/admin/orders_grouped", \App\Livewire\App\Admin\OrdersGrouped::class)->name("admin.orders-grouped");
+    Route::livewire("/admin/orders_grouped", \App\Livewire\App\Admin\OrdersGrouped::class)->name("admin.grouped-orders");
     Route::livewire("/admin/orders/{order}", \App\Livewire\App\Admin\OrderEditor::class)->name("admin.order.edit");
 
+    Route::livewire("/admin/states", \App\Livewire\App\Admin\States::class)->name("admin.states");
 
-    Route::resource("/admin/category", \App\Http\Controllers\AdminCategoryController::class);
-    Route::post("/admin/category/{category}/child_category", [\App\Http\Controllers\AdminCategoryController::class, 'addChildCategory'])->name('admin.category.addChildCategory');
-    Route::resource("/admin/item", \App\Http\Controllers\AdminItemController::class);
-    Route::post("/admin/item/{item}/category_add", [\App\Http\Controllers\AdminItemController::class, 'addCategory'])->name('admin.item.addCategory');
-    Route::post("/admin/item/{item}/category_remove", [\App\Http\Controllers\AdminItemController::class, 'removeCategory'])->name('admin.item.removeCategory');
-    Route::post("/admin/item/{item}/size_add", [\App\Http\Controllers\AdminItemController::class, 'addSize'])->name('admin.item.addSize');
-    Route::post("/admin/item/{item}/upload", [\App\Http\Controllers\ItemImageController::class, 'upload'])->name('admin.item.upload');
+    ## Categories
+    Route::livewire("/admin/categories", \App\Livewire\App\Admin\Categories::class)->name("admin.categories");
+    Route::livewire("/admin/items", \App\Livewire\App\Admin\Items::class)->name("admin.items");
+    Route::livewire("/admin/item/{item}", \App\Livewire\App\Admin\ItemEditor::class)->name("admin.item.edit");
 
 
     ##Users
     Route::livewire("/admin/users", \App\Livewire\App\Admin\Users::class)->name("admin.users");
     Route::livewire("/admin/teams", \App\Livewire\App\Admin\Teams::class)->name("admin.teams");
-    /*
-    Route::resource("/admin/user", \App\Http\Controllers\AdminUserController::class);
-    Route::post("/admin/user/{user}/role_add", [\App\Http\Controllers\AdminUserController::class, 'addRole'])->name('admin.user.addRole');
-    Route::post("/admin/user/{user}/role_remove", [\App\Http\Controllers\AdminUserController::class, 'removeRole'])->name('admin.user.removeRole');
-    Route::post("/admin/user/{user}/team_add",[\App\Http\Controllers\AdminUserController::class, 'addTeam'])->name('admin.user.addTeam');
-    Route::post("/admin/user/{user}/team_remove", [\App\Http\Controllers\AdminUserController::class, 'removeTeam'])->name('admin.user.removeTeam');
-    Route::get("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'createHistory'])->name('admin.user.createHistory');
-    Route::post("/admin/user/{user}/history_create", [\App\Http\Controllers\AdminUserController::class, 'storeHistory'])->name('admin.user.storeHistory');
-*/
-    Route::resource("/admin/team", \App\Http\Controllers\AdminTeamController::class);
-    Route::post("/admin/team/{team}/user_add", [\App\Http\Controllers\AdminTeamController::class, 'addUser'])->name('admin.team.addUser');
-    Route::post("/admin/team/{team}/user_remove", [\App\Http\Controllers\AdminTeamController::class, 'removeUser'])->name('admin.team.removeUser');
+    Route::livewire("/admin/roles", \App\Livewire\App\Admin\Roles::class)->name("admin.roles");
 
-    Route::resource("/admin/role", \App\Http\Controllers\AdminRoleController::class);
-    Route::post("/admin/role/{role}/permission_add", [\App\Http\Controllers\AdminRoleController::class, 'addPermission'])->name('admin.role.addPermission');
-    Route::post("/admin/role/{role}/permission_remove", [\App\Http\Controllers\AdminRoleController::class, 'removePermission'])->name('admin.role.removePermission');
 
-    Route::resource("/admin/status", AdminStatusController::class)->names("admin.status");
 });
 
 

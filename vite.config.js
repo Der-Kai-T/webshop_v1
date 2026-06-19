@@ -14,10 +14,7 @@ export default defineConfig({
                 'resources/js/custom.js',
                 'resources/js/backend.js',
             ],
-            refresh: [{
-                paths: ['resources/**', 'config/**', 'app/Http/Controllers/**'],
-                config: { delay: 300 }
-            }]
+            refresh: true,
         }),
     ],
     resolve: {

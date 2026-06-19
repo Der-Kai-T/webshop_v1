@@ -9,7 +9,7 @@
     <td class="d-none d-sm-table-cell">
         <picture class="d-block bg-light p-3 f-w-20">
             <img class="img-fluid"
-                 src="{{ $element->item->main_image()->thumb() }}"
+                 src="{{ $element->item->main_image()?->thumb() }}"
                  alt="{{ $element->item->name }}">
         </picture>
     </td>

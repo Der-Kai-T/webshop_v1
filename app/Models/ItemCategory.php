@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ItemCategory extends Model
 {
-    use Uuids;
     protected $fillable = [
         'item_id',
         'category_id',

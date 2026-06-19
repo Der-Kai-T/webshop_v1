@@ -8,7 +8,7 @@
         @endif
         class="form-control"
         id="{{ $form ?? "form" }}.{{ $model  }}"
-        rows="4"
+        rows="{{ $rows ?? 4 }}"
         wire:model="{{ $form ?? "form" }}.{{ $model }}"
         @if(isset($placeholder))
             placeholder="{{ $placeholder }}"

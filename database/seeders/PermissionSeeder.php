@@ -30,10 +30,11 @@ class PermissionSeeder extends Seeder
             "admin.role",
             "admin.article",
             "admin.order",
-            "admin.status"
+            "admin.states"
         ];
 
         $custom_permissions = [
+            "admin",  //display icon on frontend
             "admin.user.history",
             "admin.order.confirm",  //confirm order from employee (typically assigned to team-leaders)
             "admin.order.order",    //order items externally (typically assigned to purchasing departement)

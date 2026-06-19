@@ -126,3 +126,23 @@ a{
         background-color: $red;
     }
 }
+
+
+.markdown_preview
+{
+    background-color: lighten($background, 80%);
+    color: black;
+    padding: .5rem;
+}
+
+.markdown_header
+{
+    font-weight: bold;
+}
+
+
+/* fix for toaster magic scrolling */
+.toast-container {
+    position:fixed;
+}
+

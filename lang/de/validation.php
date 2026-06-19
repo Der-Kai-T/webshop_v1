@@ -196,6 +196,12 @@ return [
         "team_ids" => "Teams",
         "role_names" => "Rollen",
         "value" => "Wert",
+        "name" => "Name",
+        "size" => "Größe",
+        "price" => "Preis",
+        "price_set" => "Preis überschreiben",
+        "price_add" => "Preiszuschlag (addieren)",
+        "price_factor" => "Preiszuschlag (multiplizieren)",
     ],
 
 ];
