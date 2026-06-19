@@ -16,6 +16,7 @@
                             <tr>
                                 <th>Mitarbeiter</th>
                                 <th>Bestellung</th>
+                                <th>Inhalt</th>
                                 <th>Aktionen</th>
                             </tr>
                             </thead>
@@ -24,6 +25,15 @@
                                 <tr>
                                     <td>{{ $order->user->name }}</td>
                                     <td>{{ $order->number }}</td>
+                                    <td>
+                                        @if(!is_null($order->items))
+                                            <ul>
+                                                @foreach($order->items as $item)
+                                                    <li>{{ $item->quantity }}x {{ $item->item_name() }}</li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </td>
                                     <td>
                                         <button class="btn btn-primary"
                                                 wire:click="confirmOrder('{{ $order->id }}')"
