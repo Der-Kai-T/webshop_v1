@@ -1,0 +1,81 @@
+
+.nav-header.application{
+    background-color: $blue;
+    color: $gray;
+}
+.nav-item.application{
+    border-left: 4px solid $blue;
+}
+
+
+.nav-header.admin{
+    background-color: $red;
+    color: $gray;
+}
+.nav-item.admin{
+    border-left: 4px solid $red;
+}
+
+.nav-header{
+    @extend .bold;
+    text-transform: uppercase;
+}
+
+.sidebar-wrapper .sidebar-menu > .nav-item > .nav-link.active:not(:hover){
+    background-color: $light-blue;
+}
+
+.sidebar-wrapper .sidebar-menu > .nav-item > .nav-link.active:hover{
+    background-color: lighten($light-blue, 20%);
+}
+.sidebar-wrapper .sidebar-menu > .nav-item > .nav-link:hover{
+    background-color: lighten($light-blue, 20%);
+}
+
+
+
+
+
+//top navigation
+
+.user-menu a{
+
+}
+
+.user-header
+{
+    min-height: 1rem!important;
+    padding: .5rem!important;
+    background-color: var(--background)!important;
+    color: $gray !important;
+}
+
+.user-footer-flex
+{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+.profile-button
+{
+    border: 1px solid $light_blue !important;
+}
+
+.profile-button:hover
+{
+    background-color: $light_blue!important;
+    color: $light_blue !important;
+}
+
+.sign-out-button
+{
+    border: 1px solid $red !important;
+}
+
+.sign-out-button:hover
+{
+    background-color: $red !important;
+    color: $gray !important;
+}

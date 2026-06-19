@@ -112,8 +112,8 @@ class User extends Authenticatable
             $budget += $history->add ?? 0;
             $budget -= $history->subtract ?? 0;
         }
-        if($budget == 0){
-            return false;
+        if($budget > -0.01 && $budget < 0.01){
+            return 0;
         }
         return $budget;
     }

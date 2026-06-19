@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class ItemImage extends Model
@@ -22,6 +23,13 @@ class ItemImage extends Model
         return [
             'item_id' => 'string',
         ];
+    }
+
+    protected function fileWithPath(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->path  . $this->file_name
+        );
     }
 
     public function item(): \Illuminate\Database\Eloquent\Relations\BelongsTo

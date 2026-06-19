@@ -94,6 +94,17 @@
                 </li>
                 <!-- /Navbar Login-->
 
+                @can("admin")
+                    <!-- Navbar Login-->
+                    <li class="ms-1 d-none d-lg-inline-block">
+                        <a class="btn btn-link px-2 text-decoration-none d-flex align-items-center"
+                           href="/admin" title="Administration">
+                            <i class="ri-government-line ri-lg align-middle"></i>
+                        </a>
+                    </li>
+                    <!-- /Navbar Login-->
+                    @endcan
+
                 <!-- Navbar Cart-->
                 <li class="ms-1 d-inline-block position-relative">
                     <button

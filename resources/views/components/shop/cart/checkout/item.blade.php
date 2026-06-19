@@ -2,7 +2,7 @@
     <div class="d-flex flex-grow-1 justify-content-start align-items-start">
         <div class="position-relative f-w-20 border p-2 me-4">
             <span class="checkout-item-qty">{{$item->quantity}}</span>
-            <img src="{{ $item->item->main_image()->thumb() }}"
+            <img src="{{ $item->item->main_image()?->thumb() }}"
                  alt="{{ $item->item->name }}" class="rounded img-fluid">
         </div>
         <div>

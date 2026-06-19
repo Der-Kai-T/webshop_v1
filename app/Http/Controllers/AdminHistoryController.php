@@ -62,7 +62,7 @@ class AdminHistoryController extends Controller
         //delete all Items
         UserHistoryItem::where("history_id", $order->id)->delete();
 
-        //delete Order
+        //delete Orders
         $order->delete();
 
         return redirect("/admin/order")->with("success", "Bestellung wurde gelöscht");

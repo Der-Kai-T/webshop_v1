@@ -1,0 +1,148 @@
+@import "colors";
+
+@import "~admin-lte/src/scss/adminlte";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+a{
+    text-decoration: none;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+@import "parts/navigation";
+
+.table-hover tr:hover td{
+    cursor:pointer;
+    background-color: $hoverColor;
+}
+.table-hover tr:hover th{
+    cursor:pointer;
+    background-color: $hoverColor;
+}
+
+.table-hover .active td{
+    background-color: $activeColor;
+}
+
+.table-hover .active th{
+    background-color: $activeColor;
+}
+
+.table-sticky th{
+    position: sticky;
+    top: 0;
+}
+
+.form-validation-error{
+    color: darken($red, 10%);
+    font-weight: bold;
+}
+
+.highlight{
+    background-color: lighten($blue, 60%);
+    color: black;
+    border-radius: .4rem;
+    padding: 0 .5rem;
+}
+
+.card-body-scroll{
+    height: 75vH;
+    overflow: scroll;
+}
+
+.card .card-hover:hover {
+    border-color: $hoverColor;
+
+}
+.card .card-hover:hover .card-header {
+    background-color: $hoverColor;
+    color: black;
+    cursor: pointer;
+}
+
+.card .active{
+    border-color:  $activeColor;
+}
+.card .active.card-header{
+    background-color: $activeColor;
+    color:black;
+}
+
+
+.dashboard-infocard-container
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.dashboard-infocard{
+    display: flex;
+    align-items: center;
+    background-color: lighten($background, 20%);
+    border: 2px solid lighten($background, 20%);
+    padding: 0.5rem;
+    border-radius: .5rem;
+    margin: 0.5rem;
+}
+
+.dashboard-infocard-pointer{
+    cursor: pointer;
+}
+
+.dashboard-infocard-warning{
+    background-color: $danger;
+    border-color: darken($danger, 5%);
+}
+
+.dashboard-infocard-number{
+    font-size: 1.8rem;
+    min-width: 3rem;
+    text-align: center
+}
+
+.dashboard-infocard-text{
+    margin-left: 1rem;
+}
+
+.value_negative
+{
+    font-weight: bold;
+    color: $red
+}
+
+.value_positive
+{
+    font-weight: bold;
+    color: $green
+}
+
+.mark-delete-row{
+    background-color: $red;
+    td{
+        background-color: $red;
+    }
+}
+
+
+.markdown_preview
+{
+    background-color: lighten($background, 80%);
+    color: black;
+    padding: .5rem;
+}
+
+.markdown_header
+{
+    font-weight: bold;
+}
+
+
+/* fix for toaster magic scrolling */
+.toast-container {
+    position:fixed;
+}
+

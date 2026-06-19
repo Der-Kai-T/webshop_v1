@@ -17,6 +17,7 @@ class ItemSize extends Model
         'price_set',
         'price_add',
         'price_factor',
+        'enabled',
     ];
 
     protected function casts()

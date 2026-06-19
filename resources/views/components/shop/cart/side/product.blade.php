@@ -7,7 +7,7 @@
 <div {{ $attributes->class(['row mx-0 pb-4 mb-4 border-bottom']) }}>
     <div class="col-3">
         <picture class="d-block bg-light">
-            <img class="img-fluid" src="{{ $cartitem->item->main_image()->thumb() }}"
+            <img class="img-fluid" src="{{ $cartitem->item->main_image()?->thumb() }}"
                  alt="{{ $cartitem->item->name }}">
         </picture>
     </div>

@@ -188,6 +188,20 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "name_first"  => "Vorname",
+        "name_last"  => "Nachname",
+        "employee_number" => "Mitarbeiternummer",
+        "email" => "E-Mail",
+        "team_ids" => "Teams",
+        "role_names" => "Rollen",
+        "value" => "Wert",
+        "name" => "Name",
+        "size" => "Größe",
+        "price" => "Preis",
+        "price_set" => "Preis überschreiben",
+        "price_add" => "Preiszuschlag (addieren)",
+        "price_factor" => "Preiszuschlag (multiplizieren)",
+    ],
 
 ];
